@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog & iGaming Insights | RED HOT GAMES – Premium iGaming Solutions</title>
+  <meta name="description" content="Stay updated with the latest company news, industry insights, events, and regulatory compliances in the global and African iGaming sectors from Red Hot Games." />
+
+  <!-- BOOTSTRAP 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;800&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800;900&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/blog.css">
+</head>
+
+<body>
+
+  <canvas id="particles"></canvas>
+  <div id="cursor-glow"></div>
+
+  <!-- NAV -->
+  <nav class="navbar navbar-expand-xl fixed-top">
+    <div class="container-fluid px-4 px-lg-5">
+      <a class="navbar-brand" href="index.html">
+        <img src="./assets/img/logo/Redhotgames.png" alt="Red Hot Games" class="white-logo">
+      </a>
+
+      <!-- Desktop Links -->
+      <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+        <ul class="navbar-nav gap-xl-4">
+          <!-- <li class="nav-item"><a class="nav-link" href="index.html#playbex">LOC Compliance</a></li> -->
+          <li class="nav-item"><a class="nav-link" href="index.html#modules">Platform</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#channels">Omnichannel</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#crm">CRM</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#partnership">Partnerships</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link active" href="blog.html">Blog</a></li>
+        </ul>
+      </div>
+
+      <div class="d-flex align-items-center gap-3">
+        <a href="contact.html" class="btn-primary d-none d-xl-block">Contact Us</a>
+        <button class="nav-toggle d-xl-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+          aria-controls="offcanvasNavbar">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- BOOTSTRAP OFF-CANVAS -->
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+    <div class="offcanvas-header px-4 pt-4">
+      <h5 class="offcanvas-title fw-bold" id="offcanvasNavbarLabel">MENU</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body p-4">
+      <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 mobile-links-v2">
+        <li class="nav-item"><a class="nav-link" href="index.html#playbex">LOC Compliance</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#modules">Platform Modules</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#channels">Omnichannel</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#crm">Intelligent CRM</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#partnership">Partnerships</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#cashier">Cashier & Terminals</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+        <li class="nav-item"><a class="nav-link active" href="blog.html">Blog</a></li>
+      </ul>
+      <div class="mt-5">
+        <a href="contact.html" class="btn-primary w-100 text-center">Contact Us</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO SECTION -->
+  <section class="blog-hero">
+    <div class="blog-hero-orb blog-orb1"></div>
+    <div class="blog-hero-orb blog-orb2"></div>
+    <div class="container text-center">
+      <div class="blog-hero-content">
+        <div class="blog-hero-badge fade-in">Insights &amp; Innovation</div>
+        <h1 class="fade-in">The Red Hot <em>iGaming Blog</em></h1>
+        <p class="blog-hero-sub fade-in">Unlock expert research, development updates, and major announcements regarding regulation compliance, physical terminals, and digital iGaming systems.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATEGORIES FILTER -->
+  <section class="blog-filters-container">
+    <div class="container">
+      <div class="blog-filters fade-in">
+        <button class="filter-btn active" data-category="all">All Stories</button>
+        <button class="filter-btn" data-category="company-news">Company News</button>
+        <button class="filter-btn" data-category="industry-insights">Industry Insights</button>
+        <button class="filter-btn" data-category="events">Events &amp; Webinars</button>
+        <button class="filter-btn" data-category="regulatory">Regulatory Compliance</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN BLOG SECTION -->
+  <section class="blog-main-section">
+    <div class="container">
+
+      <!-- FEATURED POST -->
+      <div class="featured-article-card fade-in" data-category="company-news">
+        <div class="row g-0 align-items-stretch">
+          <div class="col-lg-6 featured-image-col">
+            <span class="featured-badge">Featured Post</span>
+            <img src="./assets/img/blog/1.jpg" alt="SBC Awards Victory 2026" class="featured-img">
+          </div>
+          <div class="col-lg-6 featured-body-col">
+            <div class="post-meta">
+              <span class="category"><i class="ri-folder-open-line"></i> Company News</span>
+              <span class="date"><i class="ri-calendar-line"></i> May 6, 2026</span>
+              <span class="read-time"><i class="ri-time-line"></i> 4 min read</span>
+            </div>
+            <h2 class="featured-title">
+              <a href="blog-detail.html?id=sbc-awards-victory">Red Hot Games Aggregator Wins at SBC Awards Europe 2026</a>
+            </h2>
+            <p class="featured-excerpt">
+              We are thrilled to announce that the Red Hot Games Game Aggregator has officially won the prestigious 'Aggregator of the Year' award at the SBC Awards Europe 2026 in Valletta, Malta...
+            </p>
+            <div class="d-flex align-items-center justify-content-between flex-wrap gap-4">
+              <div class="author-widget">
+                <div class="author-avatar">AR</div>
+                <div class="author-info">
+                  <h5>Alex Radchenko</h5>
+                  <span>Head of Communications</span>
+                </div>
+              </div>
+              <a href="blog-detail.html?id=sbc-awards-victory" class="read-more-btn">
+                Read Story <i class="ri-arrow-right-line"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BLOG GRID -->
+      <div class="row g-4" id="blog-grid">
+        
+        <!-- Post 2: AI Entry Requirement -->
+        <div class="col-lg-4 col-md-6 fade-in blog-post-item" data-category="industry-insights">
+          <div class="blog-card">
+            <div class="blog-card-image">
+              <span class="blog-card-category">Industry Insights</span>
+              <img src="./assets/img/blog/2.jpg" alt="AI in iGaming" class="blog-card-img">
+            </div>
+            <div class="blog-card-body">
+              <div class="post-meta mb-3">
+                <span><i class="ri-calendar-line"></i> April 30, 2026</span>
+                <span><i class="ri-time-line"></i> 5 min read</span>
+              </div>
+              <h3 class="blog-card-title">
+                <a href="blog-detail.html?id=ai-igaming-requirement">AI is Now iGaming's Unofficial Entry Requirement</a>
+              </h3>
+              <p class="blog-card-excerpt">
+                From real-time threat intelligence and fraud prevention to personalized retention engines and smart cashier systems, AI has transitioned from an option to a core structural standard...
+              </p>
+              <div class="blog-card-footer">
+                <div class="blog-card-author">
+                  <div class="blog-card-author-avatar">SJ</div>
+                  <span>Sarah Jenkins</span>
+                </div>
+                <span class="blog-card-date">Read More →</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Post 3: Tech Race Summit -->
+        <div class="col-lg-4 col-md-6 fade-in blog-post-item" data-category="events">
+          <div class="blog-card">
+            <div class="blog-card-image">
+              <span class="blog-card-category">Events</span>
+              <img src="./assets/img/blog/3.jpg" alt="Tech Race Summit 2026" class="blog-card-img">
+            </div>
+            <div class="blog-card-body">
+              <div class="post-meta mb-3">
+                <span><i class="ri-calendar-line"></i> April 29, 2026</span>
+                <span><i class="ri-time-line"></i> 3 min read</span>
+              </div>
+              <h3 class="blog-card-title">
+                <a href="blog-detail.html?id=tech-race-summit">Red Hot Games Launches Tech Race Summit 2026</a>
+              </h3>
+              <p class="blog-card-excerpt">
+                Our annual developer summit is officially launching this month in Johannesburg, focusing on next-generation SSBT software integrations, WebRTC low-latency streaming, and localized CRM...
+              </p>
+              <div class="blog-card-footer">
+                <div class="blog-card-author">
+                  <div class="blog-card-author-avatar">M</div>
+                  <span>Malope</span>
+                </div>
+                <span class="blog-card-date">Read More →</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Post 4: Trends Report Contribution -->
+        <div class="col-lg-4 col-md-6 fade-in blog-post-item" data-category="industry-insights">
+          <div class="blog-card">
+            <div class="blog-card-image">
+              <span class="blog-card-category">Industry Insights</span>
+              <img src="./assets/img/blog/1.jpg" alt="Trends Report 2027" class="blog-card-img" style="transform: scale(0.8)">
+            </div>
+            <div class="blog-card-body">
+              <div class="post-meta mb-3">
+                <span><i class="ri-calendar-line"></i> April 27, 2026</span>
+                <span><i class="ri-time-line"></i> 6 min read</span>
+              </div>
+              <h3 class="blog-card-title">
+                <a href="blog-detail.html?id=trends-report-2027">RHG Calls on Industry Experts to Contribute to 2027 Trends Report</a>
+              </h3>
+              <p class="blog-card-excerpt">
+                We are officially launching our global call for contributions to the iGaming Trends Report 2027. Join analytical researchers and operators to analyze the future of global acquisition ecosystems...
+              </p>
+              <div class="blog-card-footer">
+                <div class="blog-card-author">
+                  <div class="blog-card-author-avatar">AR</div>
+                  <span>Alex Radchenko</span>
+                </div>
+                <span class="blog-card-date">Read More →</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Post 5: World Cup Webinar -->
+        <div class="col-lg-4 col-md-6 fade-in blog-post-item" data-category="events">
+          <div class="blog-card">
+            <div class="blog-card-image">
+              <span class="blog-card-category">Events</span>
+              <img src="./assets/img/blog/2.jpg" alt="World Cup 2026 Webinar" class="blog-card-img">
+            </div>
+            <div class="blog-card-body">
+              <div class="post-meta mb-3">
+                <span><i class="ri-calendar-line"></i> April 24, 2026</span>
+                <span><i class="ri-time-line"></i> 4 min read</span>
+              </div>
+              <h3 class="blog-card-title">
+                <a href="blog-detail.html?id=world-cup-webinar">Red Hot Games and SBC Host World Cup 2026 Webinar</a>
+              </h3>
+              <p class="blog-card-excerpt">
+                Wagering projections for the upcoming World Cup 2026 are breaking all historical modeling. Join our exclusive joint webinar detailing load balancing, real-time risk controls, and peak uptime strategies...
+              </p>
+              <div class="blog-card-footer">
+                <div class="blog-card-author">
+                  <div class="blog-card-author-avatar">M</div>
+                  <span>Malope</span>
+                </div>
+                <span class="blog-card-date">Read More →</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Post 6: NRCS Compliance -->
+        <div class="col-lg-4 col-md-6 fade-in blog-post-item" data-category="regulatory">
+          <div class="blog-card">
+            <div class="blog-card-image">
+              <span class="blog-card-category">Regulatory Compliance</span>
+              <img src="./assets/img/blog/3.jpg" alt="NRCS compliance" class="blog-card-img">
+            </div>
+            <div class="blog-card-body">
+              <div class="post-meta mb-3">
+                <span><i class="ri-calendar-line"></i> May 5, 2026</span>
+                <span><i class="ri-time-line"></i> 7 min read</span>
+              </div>
+              <h3 class="blog-card-title">
+                <a href="blog-detail.html?id=nrcs-compliance-loc">NRCS Compliance: What LOC Certification Means for African Operators</a>
+              </h3>
+              <p class="blog-card-excerpt">
+                Securing an official Letter of Compliance (LOC) for our Playbex Wagering Recording System is a monumental regulatory step. Here is how this streamlines multi-channel deployment times...
+              </p>
+              <div class="blog-card-footer">
+                <div class="blog-card-author">
+                  <div class="blog-card-author-avatar">SJ</div>
+                  <span>Sarah Jenkins</span>
+                </div>
+                <span class="blog-card-date">Read More →</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER SIGNUP SECTION -->
+  <section class="newsletter-section">
+    <div class="container">
+      <div class="newsletter-box fade-in">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-7">
+            <div class="newsletter-content text-start">
+              <span class="newsletter-badge">Stay Ahead of the Market</span>
+              <h2>Ignite Your Inbox with <em>iGaming Insights</em></h2>
+              <p class="newsletter-desc">Subscribe to our newsletter to receive the latest technological breakthroughs, licensing guides, events invitations, and industry trends directly in your inbox.</p>
+            </div>
+          </div>
+          <div class="col-lg-5">
+            <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing to Red Hot Games insights!');">
+              <div class="input-group">
+                <input type="email" class="form-control" placeholder="Enter your business email" required>
+                <button class="btn btn-primary" type="submit">Subscribe</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="company" class="footer">
+    <div class="container">
+      <div class="row footer-top">
+
+        <!-- Brand -->
+        <div class="col-lg-3 col-md-6 footer-brand">
+          <h3 class="logo"><span>RED</span> HOT GAMES</h3>
+          <p>
+            Igniting the iGaming industry for over 15 years. Our technology powers the world's most successful brands.
+          </p>
+
+          <div class="social-links">
+            <a href="#" aria-label="LinkedIn"><i class="ri-linkedin-fill"></i></a>
+            <a href="#" aria-label="Facebook"><i class="ri-facebook-fill"></i></a>
+            <a href="#" aria-label="YouTube"><i class="ri-youtube-fill"></i></a>
+            <a href="#" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
+            <a href="#" aria-label="Twitter"><i class="ri-twitter-x-line"></i></a>
+          </div>
+        </div>
+
+        <!-- Products -->
+        <div class="col-lg-3 col-md-6 footer-col">
+          <h4>Products</h4>
+          <ul>
+            <li><a href="index.html#modules">Game Aggregator</a></li>
+            <li><a href="index.html#modules">Sportsbook</a></li>
+            <li><a href="index.html#modules">Casino Platform</a></li>
+            <li><a href="index.html#partnership">Affiliate Platform</a></li>
+            <li><a href="index.html#modules">Jackpot Aggregator</a></li>
+            <li><a href="index.html#modules">Prediction Markets</a></li>
+          </ul>
+        </div>
+
+        <!-- Solutions -->
+        <div class="col-lg-3 col-md-6 footer-col">
+          <h4>Solutions</h4>
+          <ul>
+            <li><a href="index.html#modules">Turnkey Casino</a></li>
+            <li><a href="index.html#modules">Crypto Casino</a></li>
+            <li><a href="index.html#modules">Turnkey Sportsbook</a></li>
+            <li><a href="index.html#modules">Sportsbook Integration</a></li>
+            <li><a href="index.html#modules">Casino Games API</a></li>
+            <li><a href="index.html#crm">Managed Services</a></li>
+          </ul>
+        </div>
+
+        <!-- Resources -->
+        <div class="col-lg-3 col-md-6 footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="index.html#news">Knowledge Base</a></li>
+            <li><a href="index.html#news">iGaming Reports</a></li>
+            <li><a href="index.html#playbex">Compliance</a></li>
+            <li><a href="index.html#playbex">Glossary</a></li>
+            <li><a href="index.html#news">Events</a></li>
+            <li><a href="index.html#cashier">Cost Calculator</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom -->
+      <div class="footer-bottom">
+        <div class="footer-bottom-left">
+          ©2026 Red Hot Games. All Rights Reserved.
+        </div>
+        <div class="footer-bottom-right">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Legal Disclaimer</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script src="js/script.js"></script>
+
+  <!-- Real-time Blog Filter Logic -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const filterBtns = document.querySelectorAll(".filter-btn");
+      const featuredCard = document.querySelector(".featured-article-card");
+      const postItems = document.querySelectorAll(".blog-post-item");
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener("click", function() {
+          // Update active class on button
+          filterBtns.forEach(b => b.classList.remove("active"));
+          btn.classList.add("active");
+
+          const selectedCategory = btn.dataset.category;
+
+          // Toggle featured post
+          if (selectedCategory === "all" || featuredCard.dataset.category === selectedCategory) {
+            featuredCard.style.display = "block";
+            setTimeout(() => { featuredCard.style.opacity = "1"; }, 10);
+          } else {
+            featuredCard.style.opacity = "0";
+            setTimeout(() => { featuredCard.style.display = "none"; }, 300);
+          }
+
+          // Toggle grid posts
+          postItems.forEach(post => {
+            if (selectedCategory === "all" || post.dataset.category === selectedCategory) {
+              post.style.display = "block";
+              setTimeout(() => {
+                post.style.opacity = "1";
+                post.style.transform = "translateY(0)";
+              }, 10);
+            } else {
+              post.style.opacity = "0";
+              post.style.transform = "translateY(20px)";
+              setTimeout(() => {
+                post.style.display = "none";
+              }, 300);
+            }
+          });
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>

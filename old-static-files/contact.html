@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us | RED HOT GAMES – Premium iGaming Solutions</title>
+
+  <!-- BOOTSTRAP 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;800&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800;900&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/contact.css">
+</head>
+
+<body>
+
+  <canvas id="particles"></canvas>
+  <div id="cursor-glow"></div>
+
+  <!-- NAV -->
+  <nav class="navbar navbar-expand-xl fixed-top">
+    <div class="container-fluid px-4 px-lg-5">
+      <a class="navbar-brand" href="index.html">
+        <img src="./assets/img/logo/Redhotgames.png" alt="Red Hot Games" class="white-logo">
+      </a>
+
+      <!-- Desktop Links -->
+      <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+        <ul class="navbar-nav gap-xl-4">
+          <!-- <li class="nav-item"><a class="nav-link" href="index.html#playbex">LOC Compliance</a></li> -->
+          <li class="nav-item"><a class="nav-link" href="index.html#modules">Platform</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#channels">Omnichannel</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#crm">CRM</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#partnership">Partnerships</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+
+        </ul>
+      </div>
+
+      <div class="d-flex align-items-center gap-3">
+        <a href="contact.html" class="btn-primary d-none d-xl-block active">Contact Us</a>
+        <button class="nav-toggle d-xl-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+          aria-controls="offcanvasNavbar">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- BOOTSTRAP OFF-CANVAS -->
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+    <div class="offcanvas-header px-4 pt-4">
+      <h5 class="offcanvas-title fw-bold" id="offcanvasNavbarLabel">MENU</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body p-4">
+      <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 mobile-links-v2">
+        <!-- <li class="nav-item"><a class="nav-link" href="index.html#playbex">LOC Compliance</a></li> -->
+        <li class="nav-item"><a class="nav-link" href="index.html#modules">Platform Modules</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#channels">Omnichannel</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#crm">Intelligent CRM</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#partnership">Partnerships</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#cashier">Cashier & Terminals</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+
+      </ul>
+      <div class="mt-5">
+        <a href="contact.html" class="btn-primary w-100 text-center">Contact Us</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO SECTION -->
+  <section class="contact-hero">
+    <div class="container text-center">
+      <div class="contact-hero-content">
+        <div class="contact-hero-badge fade-in">PARTNER WITH US</div>
+        <h1 class="fade-in">Launch Your Brand <em>With Us</em></h1>
+        <p class="contact-hero-sub fade-in">Have inquiries about our White Label Software Solutions, terminal systems,
+          or hardware contracts? Get in touch with our operations team today.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN CONTACT LAYOUT -->
+  <section class="contact-section">
+    <div class="container">
+      <div class="row g-5">
+
+        <!-- Left: Contact info -->
+        <div class="col-lg-5 fade-in">
+          <div class="contact-info-wrapper">
+
+            <div class="section-tag mb-1">Corporate Relations</div>
+            <h2 class="mb-4"
+              style="font-family: 'Outfit', sans-serif; font-size: 2.2rem; font-weight: 800; letter-spacing: -0.03em;">
+              Get in Touch</h2>
+
+            <!-- Address Card -->
+            <div class="contact-card-glass">
+              <div class="info-item">
+                <div class="info-icon-box">
+                  <i class="ri-map-pin-line"></i>
+                </div>
+                <div class="info-content">
+                  <h4>Headquarters</h4>
+                  <p>Red Hot Games SA, JSE Building Complex, Sandton, Johannesburg, 2196, South Africa</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Inquiries Channels -->
+            <div class="contact-card-glass">
+              <div class="info-item">
+                <div class="info-icon-box">
+                  <i class="ri-mail-send-line"></i>
+                </div>
+                <div class="info-content">
+                  <h4>Email Inquiries</h4>
+                  <p class="mb-1"><strong>General:</strong> <a
+                      href="mailto:info@redhotgames.co.za">info@redhotgames.co.za</a></p>
+                  <p class="mb-1"><strong>Sales:</strong> <a
+                      href="mailto:sales@redhotgames.co.za">sales@redhotgames.co.za</a></p>
+                  <p><strong>Support:</strong> <a href="mailto:support@redhotgames.co.za">support@redhotgames.co.za</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Operating Hours -->
+            <div class="contact-card-glass">
+              <div class="info-item">
+                <div class="info-icon-box">
+                  <i class="ri-time-line"></i>
+                </div>
+                <div class="info-content">
+                  <h4>Business Hours</h4>
+                  <p class="mb-1">Monday – Friday: 08:30 AM – 05:00 PM (GMT+2)</p>
+                  <p>Saturday – Sunday: Closed (Emergency technical lines active 24/7)</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Social Card -->
+            <div class="social-connect-card">
+              <h4>Follow Our Channels</h4>
+              <div class="contact-social-links">
+                <a href="#" class="contact-social-btn" aria-label="LinkedIn"><i class="ri-linkedin-fill"></i></a>
+                <a href="#" class="contact-social-btn" aria-label="Facebook"><i class="ri-facebook-fill"></i></a>
+                <a href="#" class="contact-social-btn" aria-label="YouTube"><i class="ri-youtube-fill"></i></a>
+                <a href="#" class="contact-social-btn" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
+                <a href="#" class="contact-social-btn" aria-label="X (Twitter)"><i class="ri-twitter-x-line"></i></a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Right: Inquiry Form -->
+        <div class="col-lg-7 fade-in">
+          <div class="form-card-glass">
+            <h3 class="form-card-title">Send Us a Message</h3>
+            <p class="form-card-subtitle">Fill out the brief inquiry profile below and a B2B product manager will
+              respond to you within one business day.</p>
+
+            <form id="contactForm" onsubmit="handleContactSubmit(event)">
+
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group-custom">
+                    <label class="form-label-custom" for="clientName">Your Name</label>
+                    <input class="form-input-custom" type="text" id="clientName" placeholder="e.g. Malope" required>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group-custom">
+                    <label class="form-label-custom" for="clientEmail">Work Email</label>
+                    <input class="form-input-custom" type="email" id="clientEmail"
+                      placeholder="e.g. contact@yourbrand.com" required>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group-custom">
+                    <label class="form-label-custom" for="clientCompany">Company / Brand Name</label>
+                    <input class="form-input-custom" type="text" id="clientCompany" placeholder="e.g. Phoenix Play"
+                      required>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group-custom">
+                    <label class="form-label-custom" for="clientPhone">Phone Number</label>
+                    <input class="form-input-custom" type="tel" id="clientPhone" placeholder="e.g. +27 11 000 0000"
+                      required>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group-custom">
+                    <label class="form-label-custom" for="industryType">Business Model</label>
+                    <select class="form-input-custom" id="industryType" required>
+                      <option value="" disabled selected>Select Model</option>
+                      <option value="Licensed Operator">Licensed Operator</option>
+                      <option value="Retail Betting Lounge">Retail Betting Lounge</option>
+                      <option value="Casino Floor Owner">Casino Floor Owner</option>
+                      <option value="Affiliate / Agent Network">Affiliate / Agent Network</option>
+                      <option value="Startup / Tech Entrepreneur">Startup / Tech Entrepreneur</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group-custom">
+                    <label class="form-label-custom" for="targetModule">Primary Interest</label>
+                    <select class="form-input-custom" id="targetModule" required>
+                      <option value="" disabled selected>Select Product</option>
+                      <option value="Wagering Recording (Playbex LOC)">Wagering Recording (Playbex LOC)</option>
+                      <option value="Full White Label Platform">Full White Label Platform</option>
+                      <option value="B2B Sportsbook Module">B2B Sportsbook Module</option>
+                      <option value="SSBT Terminal Hardware">SSBT Terminal Hardware</option>
+                      <option value="FOBT Terminal Hardware">FOBT Terminal Hardware</option>
+                      <option value="Replacements & Spares Contracts">Replacements & Spares Contracts</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group-custom">
+                <label class="form-label-custom" for="clientMessage">Detailed Inquiry Requirements</label>
+                <textarea class="form-input-custom" id="clientMessage"
+                  placeholder="Briefly summarize your regulatory jurisdiction, estimated rollout size, or specific hardware/software goals..."
+                  required></textarea>
+              </div>
+
+              <button class="btn-form-submit" type="submit">
+                <span>Request B2B</span>
+                <i class="ri-arrow-right-line"></i>
+              </button>
+
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- GGB COMPLIANCE BAR -->
+  <section class="ggb-compliance-bar">
+    <div class="container">
+      <div class="compliance-badge-wrapper">
+
+        <!-- Badge 1 -->
+        <div class="compliance-badge-card">
+          <div class="compliance-badge-icon">
+            <i class="ri-shield-check-line"></i>
+          </div>
+          <div class="compliance-badge-info">
+            <h4>Gauteng Gambling Board</h4>
+            <p>National Regulatory Licensed Operator</p>
+          </div>
+        </div>
+
+        <!-- Badge 2 -->
+        <div class="compliance-badge-card">
+          <div class="compliance-badge-icon">
+            <i class="ri-government-line"></i>
+          </div>
+          <div class="compliance-badge-info">
+            <h4>NRCS Approved</h4>
+            <p>Letter of Compliance SANS 1718 Standards</p>
+          </div>
+        </div>
+
+        <!-- Badge 3 -->
+        <div class="compliance-badge-card">
+          <div class="compliance-badge-icon">
+            <i class="ri-star-line"></i>
+          </div>
+          <div class="compliance-badge-info">
+            <h4>B-BBEE Contributor</h4>
+            <p>Level 1 Empowered SA Business Status</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="company" class="footer">
+    <div class="container">
+      <div class="row footer-top">
+
+        <!-- Brand -->
+        <div class="col-lg-3 col-md-6 footer-brand">
+          <h3 class="logo"><span>RED</span> HOT GAMES</h3>
+          <p>
+            Igniting the iGaming industry for over 15 years. Our technology powers the world's most successful brands.
+          </p>
+
+          <div class="social-links">
+            <a href="#" aria-label="LinkedIn"><i class="ri-linkedin-fill"></i></a>
+            <a href="#" aria-label="Facebook"><i class="ri-facebook-fill"></i></a>
+            <a href="#" aria-label="YouTube"><i class="ri-youtube-fill"></i></a>
+            <a href="#" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
+            <a href="#" aria-label="Twitter"><i class="ri-twitter-x-line"></i></a>
+          </div>
+        </div>
+
+        <!-- Products -->
+        <div class="col-lg-3 col-md-6 footer-col">
+          <h4>Products</h4>
+          <ul>
+            <li><a href="index.html#modules">Game Aggregator</a></li>
+            <li><a href="index.html#modules">Sportsbook</a></li>
+            <li><a href="index.html#modules">Casino Platform</a></li>
+            <li><a href="index.html#partnership">Affiliate Platform</a></li>
+            <li><a href="index.html#modules">Jackpot Aggregator</a></li>
+            <li><a href="index.html#modules">Prediction Markets</a></li>
+          </ul>
+        </div>
+
+        <!-- Solutions -->
+        <div class="col-lg-3 col-md-6 footer-col">
+          <h4>Solutions</h4>
+          <ul>
+            <li><a href="index.html#modules">Turnkey Casino</a></li>
+            <li><a href="index.html#modules">Crypto Casino</a></li>
+            <li><a href="index.html#modules">Turnkey Sportsbook</a></li>
+            <li><a href="index.html#modules">Sportsbook Integration</a></li>
+            <li><a href="index.html#modules">Casino Games API</a></li>
+            <li><a href="index.html#crm">Managed Services</a></li>
+          </ul>
+        </div>
+
+        <!-- Resources -->
+        <div class="col-lg-3 col-md-6 footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="index.html#news">Knowledge Base</a></li>
+            <li><a href="index.html#news">iGaming Reports</a></li>
+            <li><a href="index.html#playbex">Compliance</a></li>
+            <li><a href="index.html#playbex">Glossary</a></li>
+            <li><a href="index.html#news">Events</a></li>
+            <li><a href="index.html#cashier">Cost Calculator</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom -->
+      <div class="footer-bottom">
+        <div class="footer-bottom-left">
+          ©2026 Red Hot Games. All Rights Reserved.
+        </div>
+        <div class="footer-bottom-right">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Legal Disclaimer</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SUBMISSION TOAST SUCCESS -->
+  <div class="submit-feedback-toast" id="submitFeedbackToast">
+    <div class="feedback-toast-icon">
+      <i class="ri-checkbox-circle-fill"></i>
+    </div>
+    <div>
+      <h5 class="mb-1 fw-bold text-light" style="font-size: 1rem;">Inquiry Profile Sent!</h5>
+      <p class="mb-0 text-muted" style="font-size: 0.85rem;">A B2B Product Director will contact you within 24 hours.
+      </p>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script src="js/script.js"></script>
+
+  <script>
+    function handleContactSubmit(event) {
+      event.preventDefault();
+
+      const btn = document.querySelector('.btn-form-submit');
+      const textSpan = btn.querySelector('span');
+      const icon = btn.querySelector('i');
+
+      // Visual feedback loading
+      textSpan.textContent = "Processing Inquiry...";
+      icon.className = "ri-loader-4-line ri-spin";
+      btn.disabled = true;
+
+      setTimeout(() => {
+        // Form resetting
+        document.getElementById('contactForm').reset();
+
+        // Reset button
+        textSpan.textContent = "Request B2B Consultation";
+        icon.className = "ri-arrow-right-line";
+        btn.disabled = false;
+
+        // Trigger Toast success
+        const toast = document.getElementById('submitFeedbackToast');
+        toast.classList.add('show');
+
+        setTimeout(() => {
+          toast.classList.remove('show');
+        }, 5000);
+
+      }, 1500);
+    }
+  </script>
+</body>
+
+</html>

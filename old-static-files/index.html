@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RED HOT GAMES – Premium iGaming Solutions</title>
+
+  <!-- BOOTSTRAP 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;800&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800;900&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <canvas id="particles"></canvas>
+  <div id="cursor-glow"></div>
+
+  <!-- NAV -->
+  <nav class="navbar navbar-expand-xl fixed-top">
+    <div class="container-fluid px-4 px-lg-5">
+      <a class="navbar-brand" href="index.html">
+        <img src="./assets/img/logo/Redhotgames.png" alt="Red Hot Games" class="white-logo">
+      </a>
+
+      <!-- Desktop Links -->
+      <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+        <ul class="navbar-nav gap-xl-4">
+          <!-- <li class="nav-item"><a class="nav-link" href="#playbex">LOC Compliance</a></li> -->
+          <li class="nav-item"><a class="nav-link" href="#modules">Platform</a></li>
+          <li class="nav-item"><a class="nav-link" href="#channels">Omnichannel</a></li>
+          <li class="nav-item"><a class="nav-link" href="#crm">CRM</a></li>
+          <li class="nav-item"><a class="nav-link" href="#partnership">Partnerships</a></li>
+          <!-- <li class="nav-item"><a class="nav-link" href="#cashier">Cashier & Terminals</a></li> -->
+          <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+        </ul>
+      </div>
+
+      <div class="d-flex align-items-center gap-3">
+        <a href="contact.html" class="btn-primary d-none d-xl-block">Contact Us</a>
+        <button class="nav-toggle d-xl-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+          aria-controls="offcanvasNavbar">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- BOOTSTRAP OFF-CANVAS -->
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+    <div class="offcanvas-header px-4 pt-4">
+      <h5 class="offcanvas-title fw-bold" id="offcanvasNavbarLabel">MENU</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body p-4">
+      <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 mobile-links-v2">
+        <!-- <li class="nav-item"><a class="nav-link" href="#playbex" data-bs-dismiss="offcanvas">LOC Compliance</a></li> -->
+        <li class="nav-item"><a class="nav-link" href="#modules" data-bs-dismiss="offcanvas">Platform Modules</a></li>
+        <li class="nav-item"><a class="nav-link" href="#channels" data-bs-dismiss="offcanvas">Omnichannel</a></li>
+        <li class="nav-item"><a class="nav-link" href="#crm" data-bs-dismiss="offcanvas">Intelligent CRM</a></li>
+        <li class="nav-item"><a class="nav-link" href="#partnership" data-bs-dismiss="offcanvas">Partnerships</a></li>
+        <li class="nav-item"><a class="nav-link" href="#cashier" data-bs-dismiss="offcanvas">Cashier & Terminals</a>
+        </li>
+        <!-- <li class="nav-item"><a class="nav-link" href="#company" data-bs-dismiss="offcanvas">Company</a></li> -->
+        <!-- <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li> -->
+        <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+      </ul>
+      <div class="mt-5">
+        <a href="contact.html" class="btn-primary w-100 text-center">Contact Us</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-orb orb1"></div>
+    <div class="hero-orb orb2"></div>
+    <div class="hero-grid"></div>
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6">
+          <div class="hero-content">
+            <div class="hero-badge fade-in" id="typed-badge">Global iGaming Provider</div>
+            <h1>iGaming <em>Technology</em></h1>
+            <p class="hero-sub fade-in">Red Hot Games provides professional software solutions for the global betting
+              and
+              gaming industry.</p>
+            <div class="hero-actions fade-in">
+              <a href="contact.html" class="btn-primary">Get Started</a>
+              <a href="#channels" class="btn-secondary text-black">View Products</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="hero-visual fade-in">
+            <img src="./assets/img/solutions/sportsbook.png" alt="iGaming Technology" class="hero-img">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 1: LOC COMPLIANCE (PLAYBEX SYSTEM) ===== -->
+  <section class="playbex-section" id="playbex">
+    <div class="playbex-bg-elements">
+      <div class="p-orb orb-red"></div>
+      <div class="p-orb orb-gold"></div>
+    </div>
+
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-7">
+          <div class="playbex-content-left fade-in">
+            <div class="playbex-badge-wrapper mb-3">
+              <span class="playbex-badge"><span class="badge-dot"></span> NRCS COMPLIANT</span>
+              <span class="playbex-badge-outline">LOC Certified</span>
+            </div>
+            <h2 class="massive-heading mb-3">Playbex <em>Wagering Recording System</em></h2>
+            <h4 class="playbex-subheading mb-4">Official Letter of Compliance (LOC) Issued by NRCS</h4>
+
+            <p class="playbex-lead mb-4">
+              Red Hot Games is proud to announce that NRCS has issued the LOC for its Playbex Wagering Recording System.
+            </p>
+
+            <div class="quote-card mb-4">
+              <p class="quote-text">
+                "Our platform's flexibility and the ease with which it can be customised will allow our clients to
+                launch the iGaming business in weeks, not months with our White Label Solution."
+              </p>
+              <div class="quote-author">
+                <strong>Malope</strong>
+                <span>Managing Director, Red Hot Games</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-5">
+          <div class="playbex-cert-widget fade-in">
+            <div class="cert-card-inner">
+              <div class="cert-stamp">
+                <span class="stamp-icon">✓</span>
+              </div>
+              <div class="cert-header-sec">
+                <div class="cert-logo-text">RED HOT GAMES</div>
+                <h3>Letter of Compliance</h3>
+                <span class="cert-sub text-muted">REGULATORY COMPLIANT</span>
+              </div>
+              <div class="cert-info-list">
+                <div class="cert-info-item">
+                  <span class="info-label">REGULATOR:</span>
+                  <span class="info-val">NRCS (South Africa)</span>
+                </div>
+                <div class="cert-info-item">
+                  <span class="info-label">SYSTEM:</span>
+                  <span class="info-val">Playbex Wagering Recording System</span>
+                </div>
+                <div class="cert-info-item">
+                  <span class="info-label">DEPLOYMENT:</span>
+                  <span class="info-val">Online, Retail, SSBT, FOBT</span>
+                </div>
+                <div class="cert-info-item">
+                  <span class="info-label">SOLUTION:</span>
+                  <span class="info-val">White Label iGaming Business</span>
+                </div>
+              </div>
+              <div class="cert-footer-sec">
+                <span>Certified & Approved Platform</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 2: PLATFORM MODULES ===== -->
+  <section class="modules-section dark-premium-section py-6" id="modules">
+    <div class="container">
+      <div class="section-header text-center mb-5 fade-in">
+        <div class="section-tag" style="color: var(--accent-alt);">Core Ecosystem</div>
+        <h2 style="color: #ffffff;">Platform <em style="color: var(--accent);">Modules</em></h2>
+        <p class="section-desc" style="color: #a0aebf;">A comprehensive, B2B-ready gaming software package designed to
+          empower your betting brand.</p>
+      </div>
+
+      <div class="row g-4 playbex-grid">
+        <!-- Casino Module -->
+        <div class="col-lg-4 col-md-6 fade-in">
+          <div class="playbex-module-card">
+            <div class="module-glow orange"></div>
+            <div class="module-icon">🎰</div>
+            <h3>Casino Module</h3>
+            <p class="module-text">
+              Over <strong>10,000 games</strong> from <strong>250+ leading providers</strong>, including Evolution,
+              Microgaming, NetEnt, Pragmatic Play, and other industry leaders.
+            </p>
+            <div class="module-footer-info">
+              <span>RNG & Live Dealer Games</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sportsbook Module -->
+        <div class="col-lg-4 col-md-6 fade-in">
+          <div class="playbex-module-card">
+            <div class="module-glow red"></div>
+            <div class="module-icon">⚽</div>
+            <h3>Sportsbook Module</h3>
+            <p class="module-text">
+              B2B-level solution with modern technology, <strong>210,000+ events per month</strong>, Risk management,
+              trading, client segmentation, and reporting—all in one solution.
+            </p>
+            <div class="module-marketing-tools mt-3">
+              <span class="tool-tag">Match Tracker</span>
+              <span class="tool-tag">Stats</span>
+              <span class="tool-tag">Cashout</span>
+              <span class="tool-tag">Freebets</span>
+              <span class="tool-tag">Livestream</span>
+              <span class="tool-tag">Oddsboost</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- E-sports Module -->
+        <div class="col-lg-4 col-md-6 fade-in">
+          <div class="playbex-module-card">
+            <div class="module-glow blue"></div>
+            <div class="module-icon">🎮</div>
+            <h3>E-sports Module</h3>
+            <p class="module-text">
+              Reliable, scalable B2B-solution with maximum uptime. Over <strong>2,000+ esports events per
+                month</strong>, with official data integration from partner sources.
+            </p>
+            <div class="module-footer-info">
+              <span>Official Data Integration</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Intelligent CRM -->
+        <div class="col-lg-4 col-md-6 fade-in">
+          <div class="playbex-module-card">
+            <div class="module-glow purple"></div>
+            <div class="module-icon">📈</div>
+            <h3>Intelligent CRM</h3>
+            <p class="module-text">
+              Features of CRM include Multi-Channel Campaigns, Flexible player segmentation, Gamification, Free-to-play
+              mini-games, campaign Automation, deep Analysis, Personalisation and Customisation.
+            </p>
+            <div class="module-footer-info">
+              <span>Advanced Retention Engine</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Partnership Programs -->
+        <div class="col-lg-4 col-md-6 fade-in">
+          <div class="playbex-module-card">
+            <div class="module-glow teal"></div>
+            <div class="module-icon">🤝</div>
+            <h3>Partnership Programs</h3>
+            <p class="module-text">
+              Built-in growth engines featuring multi-tiered programs. Empowers partners to market your platform while
+              ensuring deep tracking.
+            </p>
+            <div class="module-footer-info">
+              <span>Referral & Affiliate Software</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cashier Solution -->
+        <div class="col-lg-4 col-md-6 fade-in">
+          <div class="playbex-module-card">
+            <div class="module-glow mint"></div>
+            <div class="module-icon">💸</div>
+            <h3>Cashier Solution</h3>
+            <p class="module-text">
+              Our universal "CASHIER" solution is designed to provide fast and secure payment processing across various
+              platforms, networks, and traditional retail environments.
+            </p>
+            <div class="receipt-printer mt-3">
+              <span class="printer-badge">📠 Thermal Printer Support</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 3: DELIVERY CHANNELS (TABBED INTERACTIVE SHOWCASE) ===== -->
+  <section class="products py-6 light-premium-section" id="channels">
+    <div class="product-tabs-container">
+      <div class="product-tabs">
+        <button class="tab-btn active" data-tab="all">All Channels</button>
+        <button class="tab-btn" data-tab="online">Online Web App</button>
+        <button class="tab-btn" data-tab="retail">Traditional Retail</button>
+        <button class="tab-btn" data-tab="ssbt">Self-Service (SSBT)</button>
+        <button class="tab-btn" data-tab="fobt">Fixed Odds (FOBT)</button>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row g-5 g-lg-10">
+        <div class="col-lg-5">
+          <div class="products-info">
+            <span class="section-tag">Omnichannel Deployment</span>
+            <h2 class="massive-heading">Play Anywhere, <em>Anytime</em></h2>
+            <div class="products-desc mb-4">
+              <p style="color: #555;">The Playbex platform provides a complete solution for operators, operating
+                seamlessly across digital web interfaces and physical terminal hardware.</p>
+            </div>
+            <div class="south-africa-banner p-4 rounded-4"
+              style="background: linear-gradient(135deg, rgba(227, 30, 36, 0.08) 0%, rgba(227, 30, 36, 0.02) 100%); border-left: 4px solid var(--accent); margin-top: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.02);">
+              <p class="mb-0 fw-bold text-dark" style="font-size: 1.05rem;">
+                As the biggest terminal provider in South Africa, Red Hot Games will tailor make deals for a rapid
+                rollout of the terminal solution.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-7">
+          <div class="products-showcase">
+            <!-- Online Web App -->
+            <div class="product-tile casino fade-in visible" data-category="online">
+              <div class="tile-header">
+                <h3>Online Web App</h3>
+                <button class="tile-arrow"><span>→</span></button>
+              </div>
+              <div class="tile-body">
+                <!-- Initial State Content -->
+                <div class="tile-static">
+                  <p class="tile-desc">Fully responsive, ultra-fast platform available across desktop, tablet, and
+                    mobile browsers operating 24/7 online.</p>
+                  <button class="tile-plus">+</button>
+                </div>
+                <!-- Hover State Content -->
+                <ul class="tile-features">
+                  <li><span>✓</span> Seamless HTML5 wallet</li>
+                  <li><span>✓</span> Real-time push updates</li>
+                  <li><span>✓</span> Fully cross-device responsive</li>
+                  <li><span>✓</span> Native desktop &amp; mobile wrappers</li>
+                </ul>
+                <img src="assets/img/one.webp" alt="Online Web App" class="tile-visual">
+              </div>
+            </div>
+
+            <!-- Traditional Retail -->
+            <div class="product-tile sportsbook fade-in visible" data-category="retail">
+              <div class="tile-header">
+                <h3>Traditional Retail</h3>
+                <button class="tile-arrow"><span>→</span></button>
+              </div>
+              <div class="tile-body">
+                <div class="tile-static">
+                  <p class="tile-desc">Designed for cashier desks accepting bets directly from players in traditional
+                    land-based retail shops.</p>
+                  <button class="tile-plus">+</button>
+                </div>
+                <ul class="tile-features">
+                  <li><span>✓</span> Ultra-fast ticket processing</li>
+                  <li><span>✓</span> Real-time risk authorization</li>
+                  <li><span>✓</span> Secure land-based operations</li>
+                  <li><span>✓</span> Optimized printer integrations</li>
+                </ul>
+                <img src="assets/img/two.webp" alt="Traditional Retail" class="tile-visual">
+              </div>
+            </div>
+
+            <!-- Self-Service (SSBT) -->
+            <div class="product-tile aggregator fade-in visible" data-category="ssbt">
+              <div class="tile-header">
+                <h3>Self-Service (SSBT)</h3>
+                <button class="tile-arrow"><span>→</span></button>
+              </div>
+              <div class="tile-body">
+                <div class="tile-static">
+                  <p class="tile-desc">SSBT units allowing customers to place bets autonomously, expanding your retail
+                    network with minimal staffing overheads.</p>
+                  <button class="tile-plus">+</button>
+                </div>
+                <ul class="tile-features">
+                  <li><span>✓</span> Touch-screen optimized UI</li>
+                  <li><span>✓</span> Multiple ticket slips</li>
+                  <li><span>✓</span> Minimal staffing overheads</li>
+                  <li><span>✓</span> Cash acceptor &amp; coin hopper API</li>
+                </ul>
+                <img src="assets/img/three.webp" alt="Self-Service (SSBT)" class="tile-visual">
+              </div>
+            </div>
+
+            <!-- Fixed Odds (FOBT) -->
+            <div class="product-tile prediction fade-in" data-category="fobt">
+              <div class="tile-header">
+                <h3>Fixed Odds (FOBT)</h3>
+                <button class="tile-arrow"><span>→</span></button>
+              </div>
+              <div class="tile-body">
+                <div class="tile-static">
+                  <p class="tile-desc">Specially customized cabinet integrations for Fixed Odds Betting Terminals
+                    optimized for casino and retail floors.</p>
+                  <button class="tile-plus">+</button>
+                </div>
+                <ul class="tile-features">
+                  <li><span>✓</span> Low latency visual rendering</li>
+                  <li><span>✓</span> Highly engaging instant-play games</li>
+                  <li><span>✓</span> Secure terminal platform</li>
+                  <li><span>✓</span> Strict hardware certification</li>
+                </ul>
+                <img src="assets/img/one.webp" alt="Fixed Odds (FOBT)" class="tile-visual">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== SECTION 4: INTELLIGENT CRM & LIFECYCLE ===== -->
+  <section class="crm-section dark-premium-section py-6" id="crm">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6 fade-in">
+          <div class="crm-content">
+            <span class="section-tag" style="color: var(--accent-alt);">Player Intelligence</span>
+            <h2 style="color: #ffffff;">Intelligent <em style="color: var(--accent);">CRM Engine</em></h2>
+            <p class="section-desc mb-4" style="margin-left: 0; color: #a0aebf;">
+              Keep players highly engaged, loyal, and active. Our platform integrates deep player behavior analytics to
+              automate personalized retention campaigns.
+            </p>
+
+            <ul class="crm-feature-list list-unstyled d-flex flex-column gap-3 mb-4 text-light">
+              <li class="d-flex gap-3 align-items-start">
+                <span class="text-danger fs-5">✓</span>
+                <div>
+                  <strong style="color: #fff;">Multi-Channel Campaigns:</strong> <span style="color: #a0aebf;">Reach
+                    players via SMS, email, push notifications, and in-app alerts.</span>
+                </div>
+              </li>
+              <li class="d-flex gap-3 align-items-start">
+                <span class="text-danger fs-5">✓</span>
+                <div>
+                  <strong style="color: #fff;">Flexible Player Segmentation:</strong> <span
+                    style="color: #a0aebf;">Target users by betting behavior, volume, game preferences, and loyalty
+                    levels.</span>
+                </div>
+              </li>
+              <li class="d-flex gap-3 align-items-start">
+                <span class="text-danger fs-5">✓</span>
+                <div>
+                  <strong style="color: #fff;">Gamification & Free-to-Play:</strong> <span style="color: #a0aebf;">Build
+                    excitement with tournaments, spins, and interactive engagement tools.</span>
+                </div>
+              </li>
+              <li class="d-flex gap-3 align-items-start">
+                <span class="text-danger fs-5">✓</span>
+                <div>
+                  <strong style="color: #fff;">Automation & Analysis:</strong> <span style="color: #a0aebf;">Schedule
+                    automated triggers to reactivate lapsed players and optimize marketing spend.</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-lg-6 fade-in">
+          <div class="lifecycle-visual dark-glass-card rounded-4">
+            <div class="section-tag mb-3" style="color: var(--accent-alt);">Full Player Lifecycle</div>
+            <h4 class="mb-4 font-weight-bold" style="color: #ffffff;">Onboarding to Re-activation</h4>
+            <p style="font-size: 0.95rem; color: #a0aebf;">Our automated systems monitor and stimulate the entire player
+              lifespan:</p>
+
+            <div class="lifecycle-steps mt-4">
+              <div
+                class="lifecycle-step-card d-flex align-items-center gap-3 p-3 mb-2 rounded border-start border-danger border-3">
+                <div class="step-icon fs-3">🚀</div>
+                <div>
+                  <h6 class="mb-0 fw-bold" style="color: #ffffff;">Onboarding</h6>
+                  <span style="font-size: 0.8rem; color: #7b8a9e;">Smooth registration & custom welcome gifts</span>
+                </div>
+              </div>
+
+              <div
+                class="lifecycle-step-card d-flex align-items-center gap-3 p-3 mb-2 rounded border-start border-warning border-3">
+                <div class="step-icon fs-3">🎯</div>
+                <div>
+                  <h6 class="mb-0 fw-bold" style="color: #ffffff;">Engagement</h6>
+                  <span style="font-size: 0.8rem; color: #7b8a9e;">Daily tournaments & real-time betting updates</span>
+                </div>
+              </div>
+
+              <div
+                class="lifecycle-step-card d-flex align-items-center gap-3 p-3 mb-2 rounded border-start border-success border-3">
+                <div class="step-icon fs-3">🔒</div>
+                <div>
+                  <h6 class="mb-0 fw-bold" style="color: #ffffff;">Retention</h6>
+                  <span style="font-size: 0.8rem; color: #7b8a9e;">Loyalty progression tiers & customized
+                    cashbacks</span>
+                </div>
+              </div>
+
+              <div
+                class="lifecycle-step-card d-flex align-items-center gap-3 p-3 rounded border-start border-primary border-3">
+                <div class="step-icon fs-3">🔄</div>
+                <div>
+                  <h6 class="mb-0 fw-bold" style="color: #ffffff;">Re-activation</h6>
+                  <span style="font-size: 0.8rem; color: #7b8a9e;">Automated reminder offers & lapsed promo codes</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 5: PARTNERSHIP ECOSYSTEM ===== -->
+  <section class="partnership-section py-6 light-premium-section" id="partnership">
+    <div class="container">
+      <div class="section-header text-center mb-5 fade-in">
+        <div class="section-tag">Ecosystem Growth</div>
+        <h2>Partnership <em>Programs</em></h2>
+        <p class="section-desc">Multiply your acquisitions organically with built-in ambassador and affiliate tools.</p>
+      </div>
+
+      <div class="row g-4 justify-content-center">
+        <div class="col-md-6 fade-in">
+          <div class="playbex-module-card p-5">
+            <div class="module-glow red"></div>
+            <div class="module-icon">📣</div>
+            <h3 class="mb-3">Referral Program</h3>
+            <p class="module-text mb-4" style="font-size: 1rem;">
+              Empower your customers to become brand ambassadors. Our referral suite includes robust reward structures
+              and simple sharing utilities.
+            </p>
+            <ul class="list-unstyled d-flex flex-column gap-2" style="font-size: 0.9rem; color: #555;">
+              <li><strong class="text-danger">✓</strong> Flexible referral reward tier settings</li>
+              <li><strong class="text-danger">✓</strong> Symmetrical referral link structures</li>
+              <li><strong class="text-danger">✓</strong> User-friendly interface utilising unique <strong>Promo
+                  Codes</strong> and <strong>QR Codes</strong></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-6 fade-in">
+          <div class="playbex-module-card p-5">
+            <div class="module-glow orange"></div>
+            <div class="module-icon">🕸️</div>
+            <h3 class="mb-3">Affiliate Program</h3>
+            <p class="module-text mb-4" style="font-size: 1rem;">
+              Maintain high-volume traffic pipelines from professional networks. Provide webmasters and social media
+              advertisers with advanced trackers and metrics.
+            </p>
+            <ul class="list-unstyled d-flex flex-column gap-2" style="font-size: 0.9rem; color: #555;">
+              <li><strong class="text-danger">✓</strong> Transparent and effective ecosystem for webmasters, bloggers,
+                and SMM specialists</li>
+              <li><strong class="text-danger">✓</strong> Automated postbacks, precise pixel trackers, and sub-id
+                monitoring</li>
+              <li><strong class="text-danger">✓</strong> Comprehensive dashboard with instant payments & revenue share
+                logs</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 6: CASHIER, BETPLACE & SSBT (HARDWARE) ===== -->
+  <section class="cashier-section py-6" id="cashier" style="background: #f8f9fa;">
+    <div class="container">
+      <div class="section-header text-center mb-5 fade-in">
+        <div class="section-tag">Retail & Hardware Solutions</div>
+        <h2>Cashier & <em>Terminals</em></h2>
+        <p class="section-desc">Maximize your street presence and retail shop profitability with physical self-service
+          terminals and cashier systems.</p>
+      </div>
+
+      <div class="row align-items-center g-5 pb-4">
+        <div class="col-lg-6 order-2 order-lg-1 fade-in">
+          <div class="hardware-text">
+            <span class="badge bg-danger mb-3 py-2 px-3 rounded-pill"
+              style="letter-spacing: 0.05em; font-weight: 700;">PC OPERATOR PLATFORM</span>
+            <h3 class="fw-bold mb-3 text-dark">Betplace: Accepting Bets on PC</h3>
+            <p class="text-secondary mb-4" style="font-size: 1.05rem; line-height: 1.7;">
+              Betplace is our powerful, ultra-secure platform designed for accepting bets in land-based retail shops. It
+              gives cashiers absolute ease of navigation to enter client tickets within milliseconds, maintaining
+              maximum safety and system throughput.
+            </p>
+            <div class="printer-card p-4 d-flex gap-4 align-items-center">
+              <div class="printer-icon fs-1 text-danger">📠</div>
+              <div>
+                <h5 class="mb-1 fw-bold text-dark">Thermal Ticket Printer</h5>
+                <p class="mb-0 text-muted" style="font-size: 0.88rem;">Designed to output a receipt/ticket instantly
+                  upon accepting bets at the retail counter.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6 order-1 order-lg-2 text-center fade-in">
+          <div class="visual-wrapper p-4 bg-white rounded-4 border shadow-sm">
+            <div style="font-size: 5rem; margin-bottom: 20px;">💻</div>
+            <h4 class="fw-bold text-dark mb-2">Betplace PC Setup</h4>
+            <p class="text-muted" style="font-size: 0.9rem;">Clean Cashier POS interface with Thermal Printer
+              integrations</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row align-items-center g-5 pt-5">
+        <div class="col-lg-6 text-center fade-in">
+          <div class="visual-wrapper p-4 bg-white rounded-4 border shadow-sm">
+            <div style="font-size: 5rem; margin-bottom: 20px;">🖥️</div>
+            <h4 class="fw-bold text-dark mb-2">SSBT Terminal Unit</h4>
+            <p class="text-muted" style="font-size: 0.9rem;">Autonomous Touch-Screen Betting Stand for Retail Floors</p>
+          </div>
+        </div>
+
+        <div class="col-lg-6 fade-in">
+          <div class="hardware-text">
+            <span class="badge bg-warning text-dark mb-3 py-2 px-3 rounded-pill"
+              style="letter-spacing: 0.05em; font-weight: 700;">AUTONOMOUS SELF-SERVICE</span>
+            <h3 class="fw-bold mb-3 text-dark">SSBT: Modern Self-Service Betting Terminals</h3>
+            <p class="text-secondary mb-4" style="font-size: 1.05rem; line-height: 1.7;">
+              SSBT (Self-Service Betting Terminals) allow customers to place bets autonomously, without the involvement
+              of a cashier. This is the ideal solution for expanding your retail sports betting network rapidly with
+              minimal staff overheads.
+            </p>
+            <ul class="list-unstyled d-flex flex-column gap-2 text-secondary fw-semibold">
+              <li>📌 Autocomplete touch-screen wagering slip</li>
+              <li>📌 Integrated cash acceptors and thermal printers</li>
+              <li>📌 Expanding retail footprints at zero added staffing cost</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 7: PARTNERS WALL ===== -->
+  <section class="partners-wall" id="partners">
+    <div class="partners-content fade-in">
+      <h2>Hundreds of Partners and Counting</h2>
+      <p>Over the years, Red Hot Games has helped power hundreds of brands with iGaming software. Our clients get
+        industry-proven products and exceptional service, supported by experienced teams.</p>
+    </div>
+
+    <div class="partners-scroll-wrap fade-in">
+      <div class="partners-scroll-bg"></div>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 8: FACTS & FIGURES & SECURITY SLIDER ===== -->
+  <section class="facts-figures" id="company">
+    <div class="container">
+      <div class="facts-header fade-in">
+        <h2>Facts &amp; Figures</h2>
+        <p class="section-desc">Red Hot Games is a leading iGaming software provider, offering powerful solutions for
+          managing online casinos and sports-focused gaming businesses.</p>
+      </div>
+
+      <div class="facts-grid-showcase">
+        <!-- RED METRICS CARD -->
+        <div class="metrics-card red fade-in">
+          <div class="metrics-grid">
+            <div class="metric">
+              <div class="num">1,400+</div>
+              <div class="label">BRANDS USE OUR SOFTWARE</div>
+            </div>
+            <div class="metric">
+              <div class="num">40,000+</div>
+              <div class="label">CASINO GAMES AVAILABLE</div>
+            </div>
+            <div class="metric">
+              <div class="num">300+</div>
+              <div class="label">GAME PROVIDER PARTNERS</div>
+            </div>
+            <div class="metric">
+              <div class="num">#1</div>
+              <div class="label">PROVIDER IN CRYPTO GAMBLING</div>
+            </div>
+            <div class="metric">
+              <div class="num">2,000+</div>
+              <div class="label">EMPLOYEES WORKING HARD</div>
+            </div>
+            <div class="metric">
+              <div class="num">4</div>
+              <div class="label">OFFICES WORLDWIDE</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECURITY SLIDER (Manual) -->
+        <div class="sec-slider-wrap fade-in">
+          <div class="sec-slider">
+            <!-- Slide 1: SECURITY -->
+            <div class="sec-slide active">
+              <div class="sec-header">
+                <div class="sec-tag">1.Infrastructure</div>
+                <div class="d-flex">
+                  <div class="">
+                    <h3>Security</h3>
+                    <p>Cloudflare-protected enterprise solutions with multi-layered DDoS mitigation and real-time threat
+                      detection.</p>
+                  </div>
+                  <div class="sec-visual">
+                    <div class="sec-icon-large">🛡️</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 2: COMPLIANCE -->
+            <div class="sec-slide">
+              <div class="sec-header">
+                <div class="sec-tag">2.Regulatory</div>
+                <div class="d-flex">
+                  <div class="">
+                    <h3>Compliance</h3>
+                    <p>Fully GLI &amp; BMM certified iGaming software, ensuring adherence to the strictest global
+                      regulatory
+                      standards.</p>
+                  </div>
+                  <div class="sec-visual">
+                    <div class="sec-icon-large">⚖️</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 3: ISMS -->
+            <div class="sec-slide">
+              <div class="sec-header">
+                <div class="sec-tag">3.Certification</div>
+                <div class="d-flex">
+                  <div class="">
+                    <h3>ISMS</h3>
+                    <p>Information Security Management System (ISMS) implementation providing world-class data
+                      encryption
+                      and
+                      privacy controls.</p>
+                  </div>
+                  <div class="sec-visual">
+                    <div class="sec-icon-large">🔐</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="sec-nav">
+            <div class="nav-arrows">
+              <button class="sec-btn prev"><span>‹</span></button>
+              <button class="sec-btn next"><span>›</span></button>
+            </div>
+            <a href="#channels" class="sec-link">ABOUT US <span>→</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECTION: KNOWLEDGE BANNER ===== -->
+  <!-- <section class="knowledge-banner fade-in visible">
+    <div class="banner-inner yellow">
+      <div class="banner-visual left" style="transform: rotate(-10deg) scale(1.05978);"></div>
+      <div class="banner-content">
+        <h2>Unlock Insider Knowledge</h2>
+        <p>Dive into the curated collection of exclusive, value-added resources tailored for your iGaming success.</p>
+        <a href="#" class="btn-dark-sm">EXPLORE</a>
+      </div>
+      <div class="banner-visual right" style="transform: rotate(10deg) scale(1.05978);"></div>
+    </div>
+  </section> -->
+
+  <!-- ===== SECTION: LATEST NEWS BENTO ===== -->
+  <!-- NEWS BENTO -->
+  <section class="news-bento" id="news">
+    <div class="news-header-v2 fade-in">
+      <div class="header-left">
+        <h2>Latest News</h2>
+        <p>Stay updated with our latest news and press releases, and access our Knowledge Base for essential insights
+          and guides to excel in iGaming.</p>
+      </div>
+      <div class="header-right">
+        <div class="news-toggle">
+          <button class="toggle-btn active">News</button>
+          <button class="toggle-btn">Knowledge Base</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="news-grid-v2">
+      <!-- FEATURED NEWS (Large) -->
+      <div class="news-tile large fade-in">
+        <div class="tile-thumb">
+          <img src="./assets/img/blog/1.jpg" alt="" style="transform: scale(0.8)">
+        </div>
+        <div class="tile-body">
+          <div class="tile-meta">
+            <span>Company News</span> • <span>Alex Radchenko</span>
+          </div>
+          <h3><a href="blog-detail.html?id=sbc-awards-victory"
+              style="color: inherit; text-decoration: none; transition: color 0.3s ease;">Red Hot Games Aggregator Wins
+              at SBC Awards Europe 2026</a></h3>
+          <div class="tile-footer">
+            <span class="date">May 6, 2026</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- SMALLER NEWS GRID -->
+      <div class="small-news-grid">
+        <div class="news-tile small fade-in">
+          <div class="tile-thumb"><img src="./assets/img/blog/2.jpg" alt=""></div>
+          <div class="tile-body">
+            <h3><a href="blog-detail.html?id=ai-igaming-requirement"
+                style="color: inherit; text-decoration: none; transition: color 0.3s ease;">AI is Now iGaming's
+                Unofficial Entry Requirement</a></h3>
+            <div class="tile-footer">
+              <span class="date">April 30, 2026</span>
+            </div>
+          </div>
+        </div>
+        <div class="news-tile small fade-in">
+          <div class="tile-thumb"><img src="./assets/img/blog/3.jpg" alt=""></div>
+          <div class="tile-body">
+            <h3><a href="blog-detail.html?id=tech-race-summit"
+                style="color: inherit; text-decoration: none; transition: color 0.3s ease;">Red Hot Games Launches Tech
+                Race Summit 2026</a></h3>
+            <div class="tile-footer">
+              <span class="date">April 29, 2026</span>
+            </div>
+          </div>
+        </div>
+        <div class="news-tile small fade-in">
+          <div class="tile-thumb"><img src="./assets/img/blog/1.jpg" alt=""></div>
+          <div class="tile-body">
+            <h3><a href="blog-detail.html?id=trends-report-2027"
+                style="color: inherit; text-decoration: none; transition: color 0.3s ease;">Red Hot Games Calls on
+                Industry Experts to Contribute to 2027 Trends Report</a></h3>
+            <div class="tile-footer">
+              <span class="date">April 27, 2026</span>
+            </div>
+          </div>
+        </div>
+        <div class="news-tile small fade-in">
+          <div class="tile-thumb"><img src="./assets/img/blog/2.jpg" alt=""></div>
+          <div class="tile-body">
+            <h3><a href="blog-detail.html?id=world-cup-webinar"
+                style="color: inherit; text-decoration: none; transition: color 0.3s ease;">Red Hot Games and SBC Host
+                World Cup 2026 Webinar</a></h3>
+            <div class="tile-footer">
+              <span class="date">April 24, 2026</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="news-all-link fade-in">
+      <a href="blog.html">ALL NEWS <span>→</span></a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <!-- <footer id="company" class="py-6">
+    <div class="container">
+      <div class="row g-4 footer-top">
+        <div class="col-lg-3 col-md-6 footer-brand mb-4 mb-lg-0">
+          <span class="logo"><span>RED</span> HOT GAMES</span>
+          <p>Igniting the iGaming industry for over 15 years. Our technology powers the world's most successful brands.
+          </p>
+          <div class="social-links">
+            <a href="#" title="LinkedIn">in</a>
+            <a href="#" title="Facebook">f</a>
+            <a href="#" title="YouTube">▶</a>
+            <a href="#" title="Instagram">ig</a>
+            <a href="#" title="X (Twitter)">𝕏</a>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 footer-col">
+          <h4>Products</h4>
+          <ul>
+            <li><a href="#">Game Aggregator</a></li>
+            <li><a href="#">Sportsbook</a></li>
+            <li><a href="#">Casino Platform</a></li>
+            <li><a href="#">Affiliate Platform</a></li>
+            <li><a href="#">Jackpot Aggregator</a></li>
+            <li><a href="#">Prediction Markets</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6 footer-col">
+          <h4>Solutions</h4>
+          <ul>
+            <li><a href="#">Turnkey Casino</a></li>
+            <li><a href="#">Crypto Casino</a></li>
+            <li><a href="#">Turnkey Sportsbook</a></li>
+            <li><a href="#">Sportsbook Integration</a></li>
+            <li><a href="#">Casino Games API</a></li>
+            <li><a href="#">Managed Services</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6 footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="#">Knowledge Base</a></li>
+            <li><a href="#">iGaming Reports</a></li>
+            <li><a href="#">Compliance</a></li>
+            <li><a href="#">Glossary</a></li>
+            <li><a href="#">Events</a></li>
+            <li><a href="#">Cost Calculator</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom row py-4 mt-5 align-items-center justify-content-between">
+        <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+          <span>©2026 Red Hot Games. All Rights Reserved.</span>
+        </div>
+        <div class="col-md-6 text-center text-md-end">
+          <span style="display:inline-flex;gap:24px">
+            <a href="#" style="color:#7b8a9e;text-decoration:none">Privacy Policy</a>
+            <a href="#" style="color:#7b8a9e;text-decoration:none">Legal Disclaimer</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </footer> -->
+  <footer id="company" class="footer">
+    <div class="container">
+      <div class="row footer-top">
+
+        <!-- Brand -->
+        <div class="col-lg-3 col-md-6 footer-brand">
+          <h3 class="logo"><span>RED</span> HOT GAMES</h3>
+          <p>
+            Igniting the iGaming industry for over 15 years. Our technology powers the world's most successful brands.
+          </p>
+
+          <div class="social-links">
+            <a href="#" aria-label="LinkedIn"><i class="ri-linkedin-fill"></i></a>
+            <a href="#" aria-label="Facebook"><i class="ri-facebook-fill"></i></a>
+            <a href="#" aria-label="YouTube"><i class="ri-youtube-fill"></i></a>
+            <a href="#" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
+            <a href="#" aria-label="Twitter"><i class="ri-twitter-x-line"></i></a>
+          </div>
+        </div>
+
+        <!-- Products -->
+        <div class="col-lg-3 col-md-6 footer-col">
+          <h4>Products</h4>
+          <ul>
+            <li><a href="#">Game Aggregator</a></li>
+            <li><a href="#">Sportsbook</a></li>
+            <li><a href="#">Casino Platform</a></li>
+            <li><a href="#">Affiliate Platform</a></li>
+            <li><a href="#">Jackpot Aggregator</a></li>
+            <li><a href="#">Prediction Markets</a></li>
+          </ul>
+        </div>
+
+        <!-- Solutions -->
+        <div class="col-lg-3 col-md-6 footer-col">
+          <h4>Solutions</h4>
+          <ul>
+            <li><a href="#">Turnkey Casino</a></li>
+            <li><a href="#">Crypto Casino</a></li>
+            <li><a href="#">Turnkey Sportsbook</a></li>
+            <li><a href="#">Sportsbook Integration</a></li>
+            <li><a href="#">Casino Games API</a></li>
+            <li><a href="#">Managed Services</a></li>
+          </ul>
+        </div>
+
+        <!-- Resources -->
+        <div class="col-lg-3 col-md-6 footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="#">Knowledge Base</a></li>
+            <li><a href="#">iGaming Reports</a></li>
+            <li><a href="#">Compliance</a></li>
+            <li><a href="#">Glossary</a></li>
+            <li><a href="#">Events</a></li>
+            <li><a href="#">Cost Calculator</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom -->
+      <div class="footer-bottom">
+        <div class="footer-bottom-left">
+          ©2026 Red Hot Games. All Rights Reserved.
+        </div>
+        <div class="footer-bottom-right">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Legal Disclaimer</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script src="js/script.js"></script>
+</body>
+
+</html>

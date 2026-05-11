@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Article Detail | RED HOT GAMES – Premium iGaming Solutions</title>
+  <meta id="meta-description" name="description" content="Read our in-depth blog post and iGaming industry analysis from Red Hot Games." />
+
+  <!-- BOOTSTRAP 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;800&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800;900&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/blog.css">
+</head>
+
+<body>
+
+  <!-- Dynamic Reading Progress Bar -->
+  <div id="reading-progress"></div>
+
+  <canvas id="particles"></canvas>
+  <div id="cursor-glow"></div>
+
+  <!-- NAV -->
+  <nav class="navbar navbar-expand-xl fixed-top">
+    <div class="container-fluid px-4 px-lg-5">
+      <a class="navbar-brand" href="index.html">
+        <img src="./assets/img/logo/Redhotgames.png" alt="Red Hot Games" class="white-logo">
+      </a>
+
+      <!-- Desktop Links -->
+      <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+        <ul class="navbar-nav gap-xl-4">
+          <!-- <li class="nav-item"><a class="nav-link" href="index.html#playbex">LOC Compliance</a></li> -->
+          <li class="nav-item"><a class="nav-link" href="index.html#modules">Platform</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#channels">Omnichannel</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#crm">CRM</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#partnership">Partnerships</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link active" href="blog.html">Blog</a></li>
+        </ul>
+      </div>
+
+      <div class="d-flex align-items-center gap-3">
+        <a href="contact.html" class="btn-primary d-none d-xl-block">Contact Us</a>
+        <button class="nav-toggle d-xl-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+          aria-controls="offcanvasNavbar">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- BOOTSTRAP OFF-CANVAS -->
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+    <div class="offcanvas-header px-4 pt-4">
+      <h5 class="offcanvas-title fw-bold" id="offcanvasNavbarLabel">MENU</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body p-4">
+      <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 mobile-links-v2">
+        <li class="nav-item"><a class="nav-link" href="index.html#playbex">LOC Compliance</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#modules">Platform Modules</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#channels">Omnichannel</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#crm">Intelligent CRM</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#partnership">Partnerships</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#cashier">Cashier & Terminals</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+        <li class="nav-item"><a class="nav-link active" href="blog.html">Blog</a></li>
+      </ul>
+      <div class="mt-5">
+        <a href="contact.html" class="btn-primary w-100 text-center">Contact Us</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- DETAIL HERO -->
+  <section class="detail-hero">
+    <div class="container">
+      <div class="row justify-content-center text-center">
+        <div class="col-lg-10">
+          <span class="detail-category-badge fade-in" id="art-category">Company News</span>
+          <h1 class="detail-title fade-in" id="art-title">Red Hot Games Aggregator Wins at SBC Awards Europe 2026</h1>
+          
+          <div class="detail-meta-row justify-content-center fade-in">
+            <div class="detail-author">
+              <div class="detail-author-avatar" id="art-author-avatar">AR</div>
+              <div class="detail-author-info text-start">
+                <h5 id="art-author-name">Alex Radchenko</h5>
+                <span id="art-author-role">Head of Communications</span>
+              </div>
+            </div>
+            <div class="detail-meta-item">
+              <i class="ri-calendar-line"></i> <span id="art-date">May 6, 2026</span>
+            </div>
+            <div class="detail-meta-item">
+              <i class="ri-time-line"></i> <span id="art-read-time">4 min read</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARTICLE CONTENT SECTION -->
+  <section class="detail-main-section">
+    <div class="container">
+      <div class="row g-5">
+        
+        <!-- Left: Sharing Sidebar -->
+        <div class="col-lg-3 order-2 order-lg-1">
+          <div class="sticky-sidebar-wrapper">
+            
+            <!-- Widget 1: Search -->
+            <div class="sidebar-widget">
+              <div class="sidebar-search-box">
+                <i class="ri-search-line"></i>
+                <input type="text" id="sidebar-search-input" placeholder="SEARCH RECENT POSTS..." aria-label="Search posts">
+              </div>
+            </div>
+
+            <!-- Widget 2: Reading Progress -->
+            <div class="sidebar-widget">
+              <div class="sidebar-heading">READING PROGRESS</div>
+              <div class="reading-gauge-container">
+                <div class="reading-gauge-bar" id="gauge-bar"></div>
+              </div>
+            </div>
+
+            <!-- Widget 3: Recent Posts -->
+            <div class="sidebar-widget">
+              <div class="sidebar-heading">RECENT POSTS</div>
+              <div class="sidebar-recent-list" id="sidebar-recent-posts">
+                <!-- Dynamically populated from JS -->
+              </div>
+            </div>
+
+            <!-- Widget 4: Categories -->
+            <div class="sidebar-widget">
+              <div class="sidebar-heading">CATEGORIES</div>
+              <div class="sidebar-category-list" id="sidebar-categories">
+                <!-- Dynamically populated from JS -->
+              </div>
+            </div>
+
+            <!-- Widget 5: Share Insights -->
+            <!-- <div class="sidebar-widget">
+              <div class="sidebar-heading">SHARE INSIGHTS</div>
+              <div class="share-links">
+                <a href="#" class="share-btn share-linkedin" onclick="shareOnSocial('linkedin'); return false;" aria-label="Share on LinkedIn">
+                  <i class="ri-linkedin-fill"></i>
+                  <span class="share-label">LinkedIn</span>
+                </a>
+                <a href="#" class="share-btn share-twitter" onclick="shareOnSocial('twitter'); return false;" aria-label="Share on Twitter">
+                  <i class="ri-twitter-x-line"></i>
+                  <span class="share-label">Twitter / X</span>
+                </a>
+                <a href="#" class="share-btn share-facebook" onclick="shareOnSocial('facebook'); return false;" aria-label="Share on Facebook">
+                  <i class="ri-facebook-fill"></i>
+                  <span class="share-label">Facebook</span>
+                </a>
+                <a href="#" class="share-btn share-copy" id="copy-link-btn" onclick="copyLink(); return false;" aria-label="Copy Link">
+                  <i class="ri-link-m"></i>
+                  <span class="share-label">Copy URL</span>
+                </a>
+              </div>
+            </div> -->
+
+            <!-- Widget 6: Return Action -->
+            <div class="sidebar-widget text-center pt-2">
+              <a href="blog.html" class="back-to-blog-btn w-100 text-center justify-content-center">
+                <i class="ri-arrow-left-line"></i> Back to Blog
+              </a>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Right: Article Body -->
+        <div class="col-lg-9 order-1 order-lg-2">
+          
+          <div class="article-detail-card fade-in">
+            <!-- Banner Hero Image -->
+            <div class="article-hero-image-container">
+              <img src="./assets/img/blog/1.jpg" alt="Article Header Image" class="article-hero-image" id="art-hero-image">
+            </div>
+
+            <!-- Content container -->
+            <article class="article-content">
+              <p class="lead" id="art-lead">
+                We are thrilled to announce that the Red Hot Games Game Aggregator has officially won the prestigious 'Aggregator of the Year' award at the SBC Awards Europe 2026 in Valletta, Malta...
+              </p>
+
+              <div id="art-rich-content">
+                <!-- Dynamically populated -->
+              </div>
+
+              <!-- Tags -->
+              <div class="article-tags-row" id="art-tags">
+                <!-- Dynamically populated -->
+              </div>
+            </article>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RELATED ARTICLES SECTION -->
+  <section class="related-articles-section">
+    <div class="container">
+      <div class="section-header text-center mb-5">
+        <span class="section-tag">Read Next</span>
+        <h2>Related <em>Insights</em></h2>
+      </div>
+
+      <div class="row g-4" id="related-grid">
+        <!-- Dynamically populated with 3 other posts -->
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER SIGNUP SECTION -->
+  <section class="newsletter-section">
+    <div class="container">
+      <div class="newsletter-box fade-in">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-7">
+            <div class="newsletter-content text-start">
+              <span class="newsletter-badge">Stay Ahead of the Market</span>
+              <h2>Ignite Your Inbox with <em>iGaming Insights</em></h2>
+              <p class="newsletter-desc">Subscribe to our newsletter to receive the latest technological breakthroughs, licensing guides, events invitations, and industry trends directly in your inbox.</p>
+            </div>
+          </div>
+          <div class="col-lg-5">
+            <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing to Red Hot Games insights!');">
+              <div class="input-group">
+                <input type="email" class="form-control" placeholder="Enter your business email" required>
+                <button class="btn btn-primary" type="submit">Subscribe</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="company" class="footer">
+    <div class="container">
+      <div class="row footer-top">
+
+        <!-- Brand -->
+        <div class="col-lg-3 col-md-6 footer-brand">
+          <h3 class="logo"><span>RED</span> HOT GAMES</h3>
+          <p>
+            Igniting the iGaming industry for over 15 years. Our technology powers the world's most successful brands.
+          </p>
+
+          <div class="social-links">
+            <a href="#" aria-label="LinkedIn"><i class="ri-linkedin-fill"></i></a>
+            <a href="#" aria-label="Facebook"><i class="ri-facebook-fill"></i></a>
+            <a href="#" aria-label="YouTube"><i class="ri-youtube-fill"></i></a>
+            <a href="#" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
+            <a href="#" aria-label="Twitter"><i class="ri-twitter-x-line"></i></a>
+          </div>
+        </div>
+
+        <!-- Products -->
+        <div class="col-lg-3 col-md-6 footer-col">
+          <h4>Products</h4>
+          <ul>
+            <li><a href="index.html#modules">Game Aggregator</a></li>
+            <li><a href="index.html#modules">Sportsbook</a></li>
+            <li><a href="index.html#modules">Casino Platform</a></li>
+            <li><a href="index.html#partnership">Affiliate Platform</a></li>
+            <li><a href="index.html#modules">Jackpot Aggregator</a></li>
+            <li><a href="index.html#modules">Prediction Markets</a></li>
+          </ul>
+        </div>
+
+        <!-- Solutions -->
+        <div class="col-lg-3 col-md-6 footer-col">
+          <h4>Solutions</h4>
+          <ul>
+            <li><a href="index.html#modules">Turnkey Casino</a></li>
+            <li><a href="index.html#modules">Crypto Casino</a></li>
+            <li><a href="index.html#modules">Turnkey Sportsbook</a></li>
+            <li><a href="index.html#modules">Sportsbook Integration</a></li>
+            <li><a href="index.html#modules">Casino Games API</a></li>
+            <li><a href="index.html#crm">Managed Services</a></li>
+          </ul>
+        </div>
+
+        <!-- Resources -->
+        <div class="col-lg-3 col-md-6 footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="index.html#news">Knowledge Base</a></li>
+            <li><a href="index.html#news">iGaming Reports</a></li>
+            <li><a href="index.html#playbex">Compliance</a></li>
+            <li><a href="index.html#playbex">Glossary</a></li>
+            <li><a href="index.html#news">Events</a></li>
+            <li><a href="index.html#cashier">Cost Calculator</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom -->
+      <div class="footer-bottom">
+        <div class="footer-bottom-left">
+          ©2026 Red Hot Games. All Rights Reserved.
+        </div>
+        <div class="footer-bottom-right">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Legal Disclaimer</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script src="js/script.js"></script>
+
+  <!-- ARTICLE DATABANK & ENGINE -->
+  <script>
+    const ARTICLES = {
+      "sbc-awards-victory": {
+        category: "Company News",
+        title: "Red Hot Games Aggregator Wins at SBC Awards Europe 2026",
+        date: "May 6, 2026",
+        readTime: "4 min read",
+        author: "Alex Radchenko",
+        authorRole: "Head of Communications",
+        authorInitials: "AR",
+        image: "./assets/img/blog/1.jpg",
+        tags: ["Company", "Awards", "Game Aggregator", "SBC Europe"],
+        lead: "We are thrilled to announce that the Red Hot Games Game Aggregator has officially won the prestigious 'Aggregator of the Year' award at the SBC Awards Europe 2026 held in Valletta, Malta. This recognition highlights our continuous dedication to technological innovation, platform scalability, and outstanding commercial success in the global iGaming ecosystem.",
+        content: `
+          <p>The SBC Awards Europe is one of the most respected accolades in the global gaming calendar, celebrating companies that drive the industry forward through state-of-the-art solutions and flawless executions. Standing alongside some of the world's largest aggregators, Red Hot Games emerged victorious due to our highly customizable API integration, localized commercial models, and lightning-fast speed of delivery.</p>
+
+          <blockquote>
+            <p>"This award is a testament to the relentless work of our engineering and account management teams over the past year. We set out to build an aggregator that isn't just a container for games, but a comprehensive growth and customization engine for operators. Winning this in Europe proves our strategy is succeeding on the global stage."</p>
+            <cite>Malope, Managing Director at Red Hot Games</cite>
+          </blockquote>
+
+          <h2>Building a Game-Changing Aggregator</h2>
+          <p>The Red Hot Games Game Aggregator houses over <strong>10,000 games</strong> from <strong>250+ leading providers</strong>, including Evolution, Microgaming, NetEnt, and Pragmatic Play. However, what sets our product apart is our intelligent routing and localized campaign tools. Operators can manage games, spin-promotions, and automated cashback mechanics for multiple jurisdictions through a single centralized platform back-office.</p>
+
+          <div class="article-inline-image-box">
+            <img src="./assets/img/blog/1.jpg" alt="RHG celebrating SBC award win">
+            <span class="article-inline-caption">The Red Hot Games leadership team celebrating the 'Aggregator of the Year' win in Valletta, Malta.</span>
+          </div>
+
+          <h3>Unrivaled Speed and Customization</h3>
+          <p>In modern iGaming, latency and execution speed dictate player retention. Our aggregator operates at a 99.99% uptime, leveraging geo-distributed cloud hosting to serve game requests within milliseconds. This technical robustness, combined with South African localized support and NRCS compliance, makes RHG the premier partner for rapid brand rollouts.</p>
+
+          <div class="article-callout-box">
+            <h4>Key Technical Highlights of the Award-Winning Aggregator:</h4>
+            <p>• Single-API integration providing access to 10,000+ certified titles.<br>
+            • Intelligent risk-mitigation and real-time transaction monitoring.<br>
+            • Native support for multi-currency wallets, crypto gateways, and retail cashier integrations.<br>
+            • Integrated tournament engines with shared leaderboards.</p>
+          </div>
+
+          <h2>What's Next for Red Hot Games?</h2>
+          <p>Following our European success, Red Hot Games is doubling down on expansion plans across the African continent. With the official Letter of Compliance (LOC) issued by the NRCS for our Playbex Wagering Recording System, we are uniquely positioned to offer unmatched omnichannel platforms that combine online digital portals with physical terminal cabinets and cashier POS setups.</p>
+          <p>We want to thank our loyal operator partners, our game provider collaborators, and the incredible team at Red Hot Games who made this landmark victory possible.</p>
+        `
+      },
+      "ai-igaming-requirement": {
+        category: "Industry Insights",
+        title: "AI is Now iGaming's Unofficial Entry Requirement",
+        date: "April 30, 2026",
+        readTime: "5 min read",
+        author: "Sarah Jenkins",
+        authorRole: "Senior Risk Analyst",
+        authorInitials: "SJ",
+        image: "./assets/img/blog/2.jpg",
+        tags: ["AI", "Security", "Risk Management", "Automation"],
+        lead: "From real-time threat intelligence and automated fraud prevention to hyper-personalized player retention and smart cashier POS optimization, Artificial Intelligence (AI) has shifted from being a futuristic luxury to the core operational standard for any modern iGaming operator.",
+        content: `
+          <p>As competition intensifies in licensed jurisdictions across South Africa and the wider continent, operators are realizing that traditional rule-based software can no longer keep up. High-volume transactions, rapid-fire wagering slips, and multi-tier loyalty programs require intelligent, adaptive systems capable of processing millions of data points in real time.</p>
+
+          <blockquote>
+            <p>"In 2026, launching an online casino or sportsbook without an integrated AI layer is like launching a car without a navigation system. You are operating blind to player behavior, threat vectors, and marketing efficiencies."</p>
+            <cite>Sarah Jenkins, Senior Risk Analyst</cite>
+          </blockquote>
+
+          <h2>Real-Time Security and Fraud Prevention</h2>
+          <p>One of the most critical roles of AI in modern gambling is risk mitigation. Fraud rings and coordinated betting exploits use sophisticated tools to abuse bonuses, arbitrage odds, and launder funds. AI algorithms analyze transaction frequencies, login patterns, and historical betting lines to detect anomalies within milliseconds, auto-flagging accounts before substantial losses occur.</p>
+
+          <div class="article-inline-image-box">
+            <img src="./assets/img/blog/2.jpg" alt="AI Risk Analysis Board">
+            <span class="article-inline-caption">Intelligent risk-mitigation dashboards utilize machine learning models to identify coordinated bonus abuse.</span>
+          </div>
+
+          <h3>Dynamic Player Engagement and Retention</h3>
+          <p>Player acquisition costs have surged globally. Therefore, retention has become the primary battleground. AI-driven CRM engines, such as our integrated Playbex CRM module, track unique betting preferences and lifecycle thresholds. If a player shows signs of fatigue or decreases their play, the system automatically triggers a customized SMS, push, or free-spin incentive tailored precisely to their favorite game or sport.</p>
+
+          <div class="article-callout-box">
+            <h4>How AI Powers the Playbex CRM Module:</h4>
+            <p>• Automated player segmentation based on churn risk and game preferences.<br>
+            • Real-time recommendation blocks suggesting relevant live-events or slots.<br>
+            • Symmetrical, localized loyalty pathways adjusting difficulty dynamically.<br>
+            • Predictive modeling for Customer Lifetime Value (CLV).</p>
+          </div>
+
+          <h2>Conclusion: Prepare for the AI-First Era</h2>
+          <p>AI is no longer about chatbots answering customer support tickets. It is an intelligent infrastructure layer embedded deep within your wagering recorders, cashier processors, and marketing triggers. Operators who adopt these technologies today will command the margins and player loyalty of tomorrow.</p>
+        `
+      },
+      "tech-race-summit": {
+        category: "Events",
+        title: "Red Hot Games Launches Tech Race Summit 2026",
+        date: "April 29, 2026",
+        readTime: "3 min read",
+        author: "Malope",
+        authorRole: "Managing Director",
+        authorInitials: "M",
+        image: "./assets/img/blog/3.jpg",
+        tags: ["Events", "Summit", "Developers", "Infrastructure"],
+        lead: "We are thrilled to officially launch the Tech Race Summit 2026, our premier annual developer and operator conference held in Johannesburg. This year, the focus centers entirely on hardware integration, micro-latency video, and decentralized player management systems.",
+        content: `
+          <p>The Tech Race Summit 2026 is gathering over 500 engineering leads, platform operators, regulatory experts, and hardware technicians from across the continent. Over two days, attendees will dive deep into interactive workshops, hardware testing, and panel discussions focusing on the future of land-based and digital gambling technologies.</p>
+
+          <blockquote>
+            <p>"The iGaming landscape in Africa is unique. It requires a flawless marriage of high-performance digital web applications and robust, physical terminal cabinets capable of running under local power constraints. The Tech Race Summit is where these solutions are built."</p>
+            <cite>Malope, Managing Director at Red Hot Games</cite>
+          </blockquote>
+
+          <h2>Focus Areas: Omnichannel and Terminal Innovations</h2>
+          <p>This year's workshops are heavily focused on physical terminal systems—specifically, <strong>Self Service Betting Terminals (SSBT)</strong> and <strong>Fixed Odds Betting Terminals (FOBT)</strong>. Our engineering teams will demonstrate how to write custom APIs for coin hoppers, bill acceptors, and thermal printers using the Playbex core software stack.</p>
+
+          <div class="article-inline-image-box">
+            <img src="./assets/img/blog/3.jpg" alt="Developer Coding Terminals">
+            <span class="article-inline-caption">Hands-on technical workshops at the Tech Race Summit 2026 in Johannesburg, South Africa.</span>
+          </div>
+
+          <h3>Low-Latency Streaming and Esports Integration</h3>
+          <p>With live sportsbook and esports events attracting record audiences, transmitting data and video with sub-second latency is critical. We will host specialized sessions detailing WebRTC video wrapping and real-time match tracking statistics designed to perform seamlessly even on low-bandwidth mobile connections.</p>
+
+          <div class="article-callout-box">
+            <h4>Key Event Details:</h4>
+            <p>• <strong>Location:</strong> Sandton Convention Centre, Johannesburg, South Africa.<br>
+            • <strong>Dates:</strong> June 15-16, 2026.<br>
+            • <strong>Highlight Panels:</strong> Omnichannel deployment strategies, South African compliance standards (NRCS Letter of Compliance), and B2B White-Label scaling.</p>
+          </div>
+
+          <p>Registration is now open for certified B2B partners and industry developers. Visit our contact page or email our events desk to secure your summit passes today.</p>
+        `
+      },
+      "trends-report-2027": {
+        category: "Industry Insights",
+        title: "RHG Calls on Industry Experts to Contribute to 2027 Trends Report",
+        date: "April 27, 2026",
+        readTime: "6 min read",
+        author: "Alex Radchenko",
+        authorRole: "Head of Communications",
+        authorInitials: "AR",
+        image: "./assets/img/blog/1.jpg",
+        tags: ["Research", "Report", "Trends", "iGaming Future"],
+        lead: "Red Hot Games is proud to officially launch its open call for contributions to the highly anticipated iGaming Trends Report 2027. We invite analysts, engineers, risk managers, and operations leads to share their research and perspectives.",
+        content: `
+          <p>Every year, the Red Hot Games Industry Intelligence division compiles the definitive research guide for gaming operators across Africa. The 2027 edition focuses on player psychology shifts, the rise of decentralized sports pools, the role of compliance auditing (such as Gauteng Gambling Board standards), and localized gaming preferences.</p>
+
+          <blockquote>
+            <p>"Collaboration is the fuel of progress. By compiling insights from multiple expert disciplines, we can deliver a comprehensive, actionable roadmap that helps operators navigate the technical and regulatory shifts of the upcoming year."</p>
+            <cite>Alex Radchenko, Head of Communications</cite>
+          </blockquote>
+
+          <h2>Key Research Topics and Submission Tracks:</h2>
+          <p>Interested contributors can submit draft articles, data studies, or technical commentary across the following primary research categories:</p>
+          <ul>
+            <li><strong>Omnichannel Convergence:</strong> Player behavior transition between retail shops, self-service kiosks, and mobile web apps.</li>
+            <li><strong>Payment Integration Architecture:</strong> Managing high-throughput thermal ticket cashouts and crypto gateway processing safely.</li>
+            <li><strong>AI & Personalization:</strong> Measuring retention index metrics based on automated player-segmentation triggers.</li>
+            <li><strong>African Regulatory Landscapes:</strong> Legal requirements, NRCS certified wagering systems, and local licensing.</li>
+          </ul>
+
+          <div class="article-callout-box">
+            <h4>Submission Guidelines & Dates:</h4>
+            <p>• <strong>Abstract Submission Deadline:</strong> June 30, 2026.<br>
+            • <strong>Format:</strong> 1,500 - 3,000 words with verifiable data sources.<br>
+            • <strong>Benefits:</strong> Featured profiles in the printed report, invitations to our VIP Tech Race Summit dinners, and co-branding exposure to 1,400+ operators.</p>
+          </div>
+
+          <p>To submit your draft proposal, please head to our contact page and select "Trends Contribution" or contact our communications team directly.</p>
+        `
+      },
+      "world-cup-webinar": {
+        category: "Events",
+        title: "Red Hot Games and SBC Host World Cup 2026 Webinar",
+        date: "April 24, 2026",
+        readTime: "4 min read",
+        author: "Malope",
+        authorRole: "Managing Director",
+        authorInitials: "M",
+        image: "./assets/img/blog/2.jpg",
+        tags: ["SBC", "Webinar", "Sportsbook", "World Cup"],
+        lead: "With wagering volumes for the upcoming World Cup 2026 projected to break all historical records, Red Hot Games has partnered with SBC to host an exclusive webinar on operator preparation, system load balancing, and real-time risk controls.",
+        content: `
+          <p>Major sports tournaments represent the ultimate stress test for any iGaming platform. System failures, odd-compounding delays, or cashier POS crashes during high-impact live events can cost operators millions in revenue and irreparable brand damage.</p>
+
+          <blockquote>
+            <p>"The World Cup 2026 will see unprecedented volumes of live, in-play betting slips. Operators must prepare their infrastructure now. Rule-of-thumb models will fail under this volume; you need enterprise-level, compliance-approved solutions."</p>
+            <cite>Malope, Managing Director at Red Hot Games</cite>
+          </blockquote>
+
+          <h2>Webinar Panelists and Agenda:</h2>
+          <p>The webinar, titled <em>"Uptime & Under Pressure: Preparing Sportsbooks for World Cup 2026,"</em> will feature senior executives and tech leads discussing key scaling milestones:</p>
+          <ul>
+            <li><strong>Load Balancing under Peak Stress:</strong> Managing 10,000+ API requests per second during crucial live-play moments.</li>
+            <li><strong>Risk and Trading Management:</strong> Adjusting lines dynamically to mitigate professional coordinated bet arbitrage.</li>
+            <li><strong>Omnichannel Cashier Prep:</strong> Syncing retail terminals (SSBT) and digital mobile wallets with absolute financial integrity.</li>
+          </ul>
+
+          <div class="article-callout-box">
+            <h4>Webinar Details:</h4>
+            <p>• <strong>Date:</strong> July 12, 2026.<br>
+            • <strong>Platform:</strong> Zoom Video / SBC Live Portal.<br>
+            • <strong>Preregistration:</strong> Free for all licensed operators and industry stakeholders.</p>
+          </div>
+
+          <p>Spaces are limited to ensure active Q&A engagement. Reserve your spots today by registering via our contact form or through the SBC Events portal.</p>
+        `
+      },
+      "nrcs-compliance-loc": {
+        category: "Regulatory Compliance",
+        title: "NRCS Compliance: What LOC Certification Means for African Operators",
+        date: "May 5, 2026",
+        readTime: "7 min read",
+        author: "Sarah Jenkins",
+        authorRole: "Senior Risk Analyst",
+        authorInitials: "SJ",
+        image: "./assets/img/blog/3.jpg",
+        tags: ["Regulatory", "NRCS", "Compliance", "LOC"],
+        lead: "Securing the official Letter of Compliance (LOC) from the National Regulator for Compulsory Specifications (NRCS) for our Playbex Wagering Recording System is a monumental regulatory achievement. We examine how this accelerates operator rollouts.",
+        content: `
+          <p>Operating a sports betting or casino franchise in regulated jurisdictions like South Africa requires navigating rigorous hardware and software specifications. The NRCS enforces these strict national standards to ensure fair play, secure data recording, and absolute compliance. Securing the official LOC means our Playbex system has met every benchmark with flying colors.</p>
+
+          <blockquote>
+            <p>"Our NRCS certified Playbex system removes a massive regulatory barrier for B2B white-label clients. Instead of spending months auditing software architectures, operators can leverage our pre-certified solution to launch their business in weeks."</p>
+            <cite>Sarah Jenkins, Senior Risk Analyst at Red Hot Games</cite>
+          </blockquote>
+
+          <h2>Streamlining Multi-Channel Deployments</h2>
+          <p>The LOC covers deployment across all critical operation channels: digital web applications, traditional retail cashier desks (using our Betplace POS), autonomous Self-Service Betting Terminals (SSBT), and Fixed Odds Betting Terminals (FOBT). This certified versatility allows operators to scale their brands seamlessly from online platforms into street retail networks without needing multiple independent certifications.</p>
+
+          <div class="article-inline-image-box">
+            <img src="./assets/img/blog/3.jpg" alt="Compliance Certification stamp">
+            <span class="article-inline-caption">The Playbex Wagering Recording System is fully audited and compliant with national regulatory requirements.</span>
+          </div>
+
+          <h3>Why LOC is Crucial for African Operators:</h3>
+          <p>1. <strong>Trust and Integrity:</strong> Players and regulators demand absolute assurance that bet slips, cashier logs, and outcomes are recorded securely and immutably.<br>
+          2. <strong>Speed to Market:</strong> Launching a licensed gaming operation requires multiple agency approvals. Using pre-compliant B2B systems dramatically reduces legal friction.<br>
+          3. <strong>Operational Stability:</strong> High-volume retail transactions require bulletproof software that handles millions of monthly slips without data desyncs.</p>
+
+          <div class="article-callout-box">
+            <h4>Request Compliance Materials:</h4>
+            <p>If you are a prospective operator looking to review our NRCS certification dossier, Gauteng Gambling Board licences, or White-Label compliance capabilities, please submit an official request via our contact page.</p>
+          </div>
+
+          <p>Our legal and technical teams are ready to support your licensing applications, ensuring a smooth, fully-compliant launch in South Africa and neighboring jurisdictions.</p>
+        `
+      }
+    };
+
+    document.addEventListener("DOMContentLoaded", function() {
+      // 1. EXTRACT QUERY ID
+      const params = new URLSearchParams(window.location.search);
+      let artId = params.get("id");
+
+      // Fallback
+      if (!artId || !ARTICLES[artId]) {
+        artId = "sbc-awards-victory";
+      }
+
+      const post = ARTICLES[artId];
+
+      // 2. INJECT ARTICLE METADATA & BODY
+      document.title = `${post.title} | RED HOT GAMES`;
+      document.getElementById("meta-description").setAttribute("content", post.lead.substring(0, 155) + "...");
+
+      document.getElementById("art-category").textContent = post.category;
+      document.getElementById("art-title").textContent = post.title;
+      document.getElementById("art-date").textContent = post.date;
+      document.getElementById("art-read-time").textContent = post.readTime;
+      
+      document.getElementById("art-author-avatar").textContent = post.authorInitials;
+      document.getElementById("art-author-name").textContent = post.author;
+      document.getElementById("art-author-role").textContent = post.authorRole;
+
+      document.getElementById("art-hero-image").src = post.image;
+      document.getElementById("art-hero-image").alt = post.title;
+
+      document.getElementById("art-lead").textContent = post.lead;
+      document.getElementById("art-rich-content").innerHTML = post.content;
+
+      // 3. GENERATE TAGS
+      const tagsContainer = document.getElementById("art-tags");
+      tagsContainer.innerHTML = "";
+      post.tags.forEach(t => {
+        const tagEl = document.createElement("a");
+        tagEl.href = "#";
+        tagEl.className = "article-tag";
+        tagEl.textContent = `#${t}`;
+        tagEl.addEventListener("click", e => e.preventDefault());
+        tagsContainer.appendChild(tagEl);
+      });
+
+      // 4. LOAD RELATED ARTICLES (Select 3 items from remaining)
+      const relatedGrid = document.getElementById("related-grid");
+      relatedGrid.innerHTML = "";
+      
+      const keys = Object.keys(ARTICLES).filter(k => k !== artId);
+      const randomKeys = keys.sort(() => 0.5 - Math.random()).slice(0, 3);
+
+      randomKeys.forEach(k => {
+        const item = ARTICLES[k];
+        
+        const cardHtml = `
+          <div class="col-lg-4 col-md-6 fade-in">
+            <div class="blog-card">
+              <div class="blog-card-image">
+                <span class="blog-card-category">${item.category}</span>
+                <img src="${item.image}" alt="${item.title}" class="blog-card-img" ${k==='trends-report-2027' ? 'style="transform: scale(0.8)"':''}>
+              </div>
+              <div class="blog-card-body">
+                <div class="post-meta mb-3">
+                  <span><i class="ri-calendar-line"></i> ${item.date}</span>
+                </div>
+                <h3 class="blog-card-title">
+                  <a href="blog-detail.html?id=${k}">${item.title}</a>
+                </h3>
+                <p class="blog-card-excerpt">
+                  ${item.lead.substring(0, 110)}...
+                </p>
+                <div class="blog-card-footer">
+                  <div class="blog-card-author">
+                    <div class="blog-card-author-avatar">${item.authorInitials}</div>
+                    <span>${item.author}</span>
+                  </div>
+                  <span class="blog-card-date">Read →</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+        relatedGrid.insertAdjacentHTML("beforeend", cardHtml);
+      });
+
+      // Trigger scroll reveal observer for related cards
+      if (window.revObs) {
+        document.querySelectorAll(".related-articles-section .fade-in").forEach(el => window.revObs.observe(el));
+      } else {
+        // Fallback: If global observer is not initialized yet, try again shortly or reveal cards directly
+        setTimeout(() => {
+          if (window.revObs) {
+            document.querySelectorAll(".related-articles-section .fade-in").forEach(el => window.revObs.observe(el));
+          } else {
+            document.querySelectorAll(".related-articles-section .fade-in").forEach(el => el.classList.add("visible"));
+          }
+        }, 200);
+      }
+
+      // 5. READING PROGRESS SCROLL TRACKERS
+      const progress = document.getElementById("reading-progress");
+      const gauge = document.getElementById("gauge-bar");
+      window.addEventListener("scroll", function() {
+        const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        if (progress) progress.style.width = scrolled + "%";
+        if (gauge) gauge.style.width = scrolled + "%";
+      });
+
+      // 8. POPULATE SIDEBAR RECENT POSTS
+      const sidebarRecent = document.getElementById("sidebar-recent-posts");
+      if (sidebarRecent) {
+        sidebarRecent.innerHTML = "";
+        const otherKeys = Object.keys(ARTICLES).filter(k => k !== artId);
+        // Take up to 4 other posts
+        const recentKeys = otherKeys.slice(0, 4);
+        recentKeys.forEach(k => {
+          const item = ARTICLES[k];
+          
+          // Format date like 'MAY 08, 2026'
+          const dateUpper = item.date.toUpperCase();
+
+          const itemHtml = `
+            <a href="blog-detail.html?id=${k}" class="sidebar-recent-item">
+              <div class="sidebar-recent-img-wrapper">
+                <img src="${item.image}" alt="${item.title}" class="sidebar-recent-img">
+                <div class="sidebar-recent-stars">
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                </div>
+              </div>
+              <div class="sidebar-recent-content">
+                <h5 class="sidebar-recent-title">${item.title}</h5>
+                <span class="sidebar-recent-date">${dateUpper}</span>
+              </div>
+            </a>
+          `;
+          sidebarRecent.insertAdjacentHTML("beforeend", itemHtml);
+        });
+      }
+
+      // 9. POPULATE SIDEBAR CATEGORIES WITH COUNTERS
+      const sidebarCats = document.getElementById("sidebar-categories");
+      if (sidebarCats) {
+        sidebarCats.innerHTML = "";
+        
+        // Count category frequency in ARTICLES
+        const catCounts = {};
+        Object.values(ARTICLES).forEach(post => {
+          const cat = post.category || "General";
+          catCounts[cat] = (catCounts[cat] || 0) + 1;
+        });
+
+        // Loop through unique categories and render
+        Object.entries(catCounts).forEach(([catName, count]) => {
+          const catUrl = `blog.html?category=${encodeURIComponent(catName)}`;
+          const catHtml = `
+            <a href="${catUrl}" class="sidebar-cat-item">
+              <span class="sidebar-cat-name">${catName.toUpperCase()}</span>
+              <span class="sidebar-cat-count">(${count})</span>
+            </a>
+          `;
+          sidebarCats.insertAdjacentHTML("beforeend", catHtml);
+        });
+      }
+
+      // 10. SIDEBAR SEARCH TRIGGER
+      const searchInput = document.getElementById("sidebar-search-input");
+      if (searchInput) {
+        searchInput.addEventListener("keypress", function(e) {
+          if (e.key === "Enter") {
+            const query = encodeURIComponent(searchInput.value.trim());
+            if (query) {
+              window.location.href = `blog.html?search=${query}`;
+            }
+          }
+        });
+      }
+    });
+
+    // 6. SOCIAL SHARE SHIFT
+    function shareOnSocial(platform) {
+      const url = encodeURIComponent(window.location.href);
+      const title = encodeURIComponent(document.title);
+      let shareUrl = "";
+
+      if (platform === "linkedin") {
+        shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
+      } else if (platform === "twitter") {
+        shareUrl = `https://twitter.com/intent/tweet?url=${url}&text=${title}`;
+      } else if (platform === "facebook") {
+        shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+      }
+
+      window.open(shareUrl, "_blank", "width=600,height=450,location=no,toolbar=no");
+    }
+
+    // 7. COPY TO CLIPBOARD UTILITY
+    function copyLink() {
+      navigator.clipboard.writeText(window.location.href).then(() => {
+        const btn = document.getElementById("copy-link-btn");
+        const originalHtml = btn.innerHTML;
+        btn.innerHTML = '<i class="ri-check-line" style="color: #ffffff;"></i><span class="share-label" style="opacity: 1; transform: translateX(0); color: #ffffff;">Copied!</span>';
+        btn.style.borderColor = "#10b981";
+        btn.style.background = "#10b981";
+        btn.style.width = "100%";
+        
+        // Custom visual notification banner
+        const notify = document.createElement("div");
+        notify.style.position = "fixed";
+        notify.style.bottom = "30px";
+        notify.style.right = "30px";
+        notify.style.background = "#111111";
+        notify.style.color = "#ffffff";
+        notify.style.padding = "14px 24px";
+        notify.style.borderRadius = "12px";
+        notify.style.fontFamily = "Outfit, sans-serif";
+        notify.style.fontWeight = "600";
+        notify.style.fontSize = "0.95rem";
+        notify.style.boxShadow = "0 10px 30px rgba(0,0,0,0.3)";
+        notify.style.zIndex = "9999";
+        notify.style.display = "flex";
+        notify.style.alignItems = "center";
+        notify.style.gap = "10px";
+        notify.innerHTML = '<i class="ri-checkbox-circle-fill" style="color: #4caf50; font-size: 1.2rem;"></i> Article link copied to clipboard!';
+        document.body.appendChild(notify);
+
+        setTimeout(() => {
+          btn.innerHTML = originalHtml;
+          btn.style.borderColor = "";
+          btn.style.background = "";
+          btn.style.width = "";
+          notify.style.opacity = "0";
+          notify.style.transition = "opacity 0.5s ease";
+          setTimeout(() => notify.remove(), 500);
+        }, 2000);
+      });
+    }
+  </script>
+
+  <!-- Floating WhatsApp Chat Button -->
+  <a href="https://wa.me/27123456789" class="whatsapp-float-btn" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+    <i class="ri-whatsapp-line"></i>
+  </a>
+
+</body>
+
+</html>
