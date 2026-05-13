@@ -123,7 +123,7 @@ export default function BlogDetailPage() {
           <div className="lg:col-span-4 order-2 lg:order-1 flex flex-col gap-8">
             <Reveal>
               {/* Widget 2: Reading progress */}
-              <div className="bg-white border border-zinc-100 rounded-2xl p-6 shadow-sm">
+              {/* <div className="bg-white border border-zinc-100 rounded-2xl p-6 shadow-sm">
                 <h4 className="text-xs font-bold text-zinc-400 uppercase tracking-widest mb-4 border-b border-zinc-50 pb-2">
                   Reading Progress
                 </h4>
@@ -133,10 +133,10 @@ export default function BlogDetailPage() {
                     style={{ width: `${scrollProgress}%` }}
                   />
                 </div>
-              </div>
+              </div> */}
 
               {/* Widget 3: Recent articles list */}
-              <div className="bg-white border border-zinc-100 rounded-2xl p-6 shadow-sm mt-6">
+              <div className="bg-white border border-zinc-100 rounded-2xl p-6 shadow-sm">
                 <h4 className="text-xs font-bold text-zinc-400 uppercase tracking-widest mb-5 border-b border-zinc-50 pb-2">
                   Recent Posts
                 </h4>

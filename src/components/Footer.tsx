@@ -169,12 +169,12 @@ export default function Footer() {
         <div className="flex flex-col sm:flex-row items-center justify-between gap-6 pt-12 text-zinc-500 text-[0.85rem]">
           <div>©2026 Red Hot Games. All Rights Reserved.</div>
           <div className="flex items-center gap-6">
-            <a href="#" className="hover:text-brand-red transition-colors">
+            <Link href="/privacy-policy" className="hover:text-brand-red transition-colors">
               Privacy Policy
-            </a>
-            <a href="#" className="hover:text-brand-red transition-colors">
-              Legal Disclaimer
-            </a>
+            </Link>
+            <Link href="/terms-conditions" className="hover:text-brand-red transition-colors">
+              Terms &amp; Conditions
+            </Link>
           </div>
         </div>
       </div>

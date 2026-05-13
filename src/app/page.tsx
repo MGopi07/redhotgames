@@ -678,8 +678,8 @@ export default function HomePage() {
       </section>
 
       {/* 8. PARTNERS WALL */}
-      <section className="bg-zinc-950 py-24 overflow-hidden relative" id="partners">
-        <div className="max-w-7xl mx-auto px-6 md:px-8 text-center relative z-10 mb-16">
+      <section className="bg-zinc-950 overflow-hidden relative" id="partners">
+        <div className="max-w-7xl mx-auto py-20 md:px-8 text-center relative z-10">
           <Reveal>
             <h2 className="font-bebas text-4xl md:text-5xl text-white mb-6">
               Hundreds of Partners and Counting
@@ -695,7 +695,7 @@ export default function HomePage() {
           <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-zinc-950 to-transparent z-10 pointer-events-none" />
           <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-zinc-950 to-transparent z-10 pointer-events-none" />
           <div
-            className="w-full h-[150px] animate-scroll-seamless bg-repeat-x"
+            className="w-full h-[180px] animate-scroll-seamless bg-repeat-x"
             style={{
               backgroundImage: "url('/assets/img/partner_composition_x1.5.webp')",
               backgroundSize: "auto 100%",
