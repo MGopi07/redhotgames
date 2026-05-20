@@ -1,35 +1,125 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
-import { ARTICLES } from "@/data/blog";
 import { Reveal } from "@/components/Widgets";
+import { API_BASE_URL } from "@/config";
+import { ARTICLES } from "@/data/blog";
 
-const CATEGORIES = [
-  { id: "all", label: "All Stories" },
-  { id: "Company News", label: "Company News" },
-  { id: "Industry Insights", label: "Industry Insights" },
-  { id: "Events", label: "Events & Webinars" },
-  { id: "Regulatory Compliance", label: "Regulatory Compliance" }
-];
+// Helper function to calculate read time from HTML content
+const calculateReadTime = (htmlContent: string) => {
+  if (!htmlContent) return "3 min read";
+  const text = htmlContent.replace(/<[^>]+>/g, "");
+  const wordCount = text.split(/\s+/).length;
+  const readTime = Math.ceil(wordCount / 200); // Average 200 words per minute
+  return `${readTime} min read`;
+};
+
+// Helper function to format date
+const formatDate = (dateString: string) => {
+  if (!dateString) return "";
+  const date = new Date(dateString);
+  return date.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+};
 
 export default function BlogListPage() {
   const [selectedCategory, setSelectedCategory] = useState("all");
+  const [categories, setCategories] = useState([{ id: "all", label: "All Stories", slug: "all" }]);
+  const [articles, setArticles] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
 
-  const articlesList = Object.entries(ARTICLES).map(([id, post]) => ({
-    id,
-    ...post
-  }));
+  useEffect(() => {
+    const fetchBlogData = async () => {
+      try {
+        setLoading(true);
+        
+        let catRes, blogRes;
+        
+        try {
+          catRes = await fetch(`${API_BASE_URL}/api/v1/blog-categories`);
+        } catch (e) {
+          // Silent catch to prevent terminal spam
+        }
+
+        try {
+          blogRes = await fetch(`${API_BASE_URL}/api/v1/blogs`);
+        } catch (e) {
+          // Silent catch to prevent terminal spam
+        }
+
+        if (catRes && catRes.ok) {
+          try {
+            const catData = await catRes.json();
+            if (catData.success && Array.isArray(catData.data)) {
+              setCategories([
+                { id: "all", label: "All Stories", slug: "all" },
+                ...catData.data.map((c: any) => ({
+                  id: c.id,
+                  label: c.name,
+                  slug: c.slug
+                }))
+              ]);
+            }
+          } catch(e) {}
+        } else {
+          // Fallback to mock categories
+          const mockCategoriesMap = new Map();
+          Object.values(ARTICLES).forEach(article => {
+            const slug = article.category.toLowerCase().replace(/\s+/g, '-');
+            if (!mockCategoriesMap.has(slug)) {
+              mockCategoriesMap.set(slug, {
+                id: slug,
+                label: article.category,
+                slug: slug
+              });
+            }
+          });
+          setCategories([
+            { id: "all", label: "All Stories", slug: "all" },
+            ...Array.from(mockCategoriesMap.values())
+          ]);
+        }
+
+        if (blogRes && blogRes.ok) {
+          try {
+            const blogData = await blogRes.json();
+            if (blogData.success && blogData.data && Array.isArray(blogData.data.blogs)) {
+              setArticles(blogData.data.blogs);
+            }
+          } catch(e) {}
+        } else {
+          // Fallback to mock articles
+          const mockArticles = Object.entries(ARTICLES).map(([slug, article]) => ({
+              id: slug,
+              slug: slug,
+              title: article.title,
+              short_description: article.lead,
+              description: article.content,
+              image_url: article.image,
+              published_at: article.date,
+              category: {
+                  name: article.category,
+                  slug: article.category.toLowerCase().replace(/\s+/g, '-')
+              }
+          }));
+          setArticles(mockArticles);
+        }
+      } catch (err) {
+        console.warn("Error in fetchBlogData", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchBlogData();
+  }, []);
 
   const filteredArticles = selectedCategory === "all"
-    ? articlesList
-    : articlesList.filter(post => post.category === selectedCategory);
+    ? articles
+    : articles.filter(post => post.category?.slug === selectedCategory);
 
-  // Separate featured article
-  const featured = articlesList.find(post => post.id === "sbc-awards-victory");
-  const gridArticles = filteredArticles.filter(post => post.id !== "sbc-awards-victory");
-
-  const isFeaturedVisible = selectedCategory === "all" || (featured && featured.category === selectedCategory);
+  // Separate featured article (the newest one)
+  const featured = filteredArticles.length > 0 ? filteredArticles[0] : null;
+  const gridArticles = filteredArticles.length > 1 ? filteredArticles.slice(1) : [];
 
   return (
     <div className="relative min-h-screen bg-zinc-50 pb-24">
@@ -54,138 +144,148 @@ export default function BlogListPage() {
       </section>
 
       {/* 2. CATEGORIES FILTER BAR */}
-      <section className="py-8 bg-white border-b border-zinc-100 sticky top-[70px] z-30 shadow-sm shadow-zinc-100/5">
-        <div className="max-w-7xl mx-auto px-6 md:px-8 flex flex-wrap gap-2 justify-center">
-          {CATEGORIES.map(cat => (
-            <button
-              key={cat.id}
-              onClick={() => setSelectedCategory(cat.id)}
-              className={`px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider border transition-all duration-300 cursor-pointer ${
-                selectedCategory === cat.id
-                  ? "bg-brand-red border-brand-red text-white shadow-md shadow-brand-red/20"
-                  : "bg-zinc-50 border-zinc-100 text-zinc-500 hover:text-zinc-900 hover:bg-zinc-100"
-              }`}
-            >
-              {cat.label}
-            </button>
-          ))}
+      <section className="py-4 bg-white border-b border-zinc-100 sticky top-[70px] z-30 shadow-sm shadow-zinc-100/5 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 md:px-8">
+          <div className="flex overflow-x-auto gap-2 pb-2 snap-x [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            {categories.map(cat => (
+              <button
+                key={cat.id}
+                onClick={() => setSelectedCategory(cat.slug)}
+                className={`snap-start whitespace-nowrap shrink-0 px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider border transition-all duration-300 cursor-pointer ${
+                  selectedCategory === cat.slug
+                    ? "bg-brand-red border-brand-red text-white shadow-md shadow-brand-red/20"
+                    : "bg-zinc-50 border-zinc-100 text-zinc-500 hover:text-zinc-900 hover:bg-zinc-100"
+                }`}
+              >
+                {cat.label}
+              </button>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* 3. MAIN ARTICLES SECTION */}
       <section className="py-16 max-w-7xl mx-auto px-6 md:px-8">
-        {/* Featured Post (Always displayed at top if selected category fits) */}
-        {featured && isFeaturedVisible && (
-          <Reveal className="mb-12">
-            <div className="bg-white border border-zinc-100 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl hover:border-red-500/10 transition-all duration-500">
-              <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch">
-                <div className="lg:col-span-6 relative min-h-[300px] lg:min-h-[400px]">
-                  <span className="absolute top-4 left-4 bg-brand-red text-white text-[0.65rem] font-bold uppercase tracking-widest px-3.5 py-1.5 rounded-full z-10 shadow-md">
-                    Featured Post
-                  </span>
-                  <img
-                    src={featured.image}
-                    alt={featured.title}
-                    className="absolute inset-0 w-full h-full object-cover"
-                  />
-                </div>
-                <div className="lg:col-span-6 p-8 md:p-12 flex flex-col justify-between">
-                  <div>
-                    <div className="flex items-center gap-4 text-xs font-bold text-zinc-400 mb-4 uppercase tracking-wider">
-                      <span className="text-brand-red">📁 {featured.category}</span>
-                      <span>📅 {featured.date}</span>
-                      <span>⏱️ {featured.readTime}</span>
-                    </div>
-                    <h2 className="text-2xl md:text-3xl font-extrabold text-zinc-900 mb-4 hover:text-brand-red transition-colors">
-                      <Link href={`/blog/${featured.id}`}>
-                        {featured.title}
-                      </Link>
-                    </h2>
-                    <p className="text-zinc-500 text-sm leading-relaxed mb-6">
-                      {featured.lead}
-                    </p>
-                  </div>
-
-                  <div className="flex items-center justify-between border-t border-zinc-100 pt-6">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-brand-red text-white text-xs font-bold flex items-center justify-center">
-                        {featured.authorInitials}
-                      </div>
-                      <div>
-                        <h5 className="font-bold text-zinc-900 text-xs">{featured.author}</h5>
-                        <span className="text-[0.65rem] text-zinc-400 font-medium">{featured.authorRole}</span>
-                      </div>
-                    </div>
-                    <Link
-                      href={`/blog/${featured.id}`}
-                      className="inline-flex items-center gap-1.5 text-xs font-bold text-brand-red hover:text-red-700 transition-colors"
-                    >
-                      Read Story <span>→</span>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </Reveal>
-        )}
-
-        {/* Dynamic Grid for remaining articles */}
-        {gridArticles.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {gridArticles.map(post => (
-              <Reveal key={post.id}>
-                <div className="bg-white border border-zinc-100 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl hover:border-red-500/10 transition-all duration-500 h-full flex flex-col justify-between">
-                  <div>
-                    <div className="relative h-48 w-full bg-zinc-100 overflow-hidden">
-                      <span className="absolute top-4 left-4 bg-zinc-950/70 backdrop-blur-md text-white text-[0.65rem] font-bold uppercase tracking-widest px-3 py-1 rounded-full z-10">
-                        {post.category}
+        {loading ? (
+          <div className="flex justify-center items-center py-24">
+            <div className="w-10 h-10 border-4 border-zinc-200 border-t-brand-red rounded-full animate-spin"></div>
+          </div>
+        ) : (
+          <>
+            {/* Featured Post */}
+            {featured && (
+              <Reveal className="mb-12">
+                <div className="bg-white border border-zinc-100 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl hover:border-red-500/10 transition-all duration-500">
+                  <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch">
+                    <div className="lg:col-span-6 relative min-h-[300px] lg:min-h-[400px]">
+                      <span className="absolute top-4 left-4 bg-brand-red text-white text-[0.65rem] font-bold uppercase tracking-widest px-3.5 py-1.5 rounded-full z-10 shadow-md">
+                        Featured Post
                       </span>
                       <img
-                        src={post.image}
-                        alt={post.title}
-                        className="w-full h-full object-cover hover:scale-103 transition-transform duration-500"
+                        src={featured.image_url}
+                        alt={featured.title}
+                        className="absolute inset-0 w-full h-full object-cover"
                       />
                     </div>
-                    <div className="p-6">
-                      <div className="flex items-center gap-3 text-[0.7rem] font-bold text-zinc-400 mb-3 uppercase tracking-wider">
-                        <span>📅 {post.date}</span>
-                        <span>⏱️ {post.readTime}</span>
+                    <div className="lg:col-span-6 p-8 md:p-12 flex flex-col justify-between">
+                      <div>
+                        <div className="flex items-center gap-4 text-xs font-bold text-zinc-400 mb-4 uppercase tracking-wider">
+                          <span className="text-brand-red">📁 {featured.category?.name || "Uncategorized"}</span>
+                          <span>📅 {formatDate(featured.published_at || featured.created_at)}</span>
+                          <span>⏱️ {calculateReadTime(featured.description)}</span>
+                        </div>
+                        <h2 className="text-2xl md:text-3xl font-extrabold text-zinc-900 mb-4 hover:text-brand-red transition-colors">
+                          <Link href={`/blog/${featured.slug}`}>
+                            {featured.title}
+                          </Link>
+                        </h2>
+                        <p className="text-zinc-500 text-sm leading-relaxed mb-6">
+                          {featured.short_description}
+                        </p>
                       </div>
-                      <h3 className="text-lg font-bold text-zinc-900 mb-3 hover:text-brand-red transition-colors line-clamp-2">
-                        <Link href={`/blog/${post.id}`}>
-                          {post.title}
-                        </Link>
-                      </h3>
-                      <p className="text-zinc-500 text-xs leading-relaxed line-clamp-3">
-                        {post.lead}
-                      </p>
-                    </div>
-                  </div>
 
-                  <div className="px-6 pb-6 border-t border-zinc-50 pt-4 flex items-center justify-between mt-auto">
-                    <div className="flex items-center gap-2.5">
-                      <div className="w-8 h-8 rounded-full bg-zinc-100 text-zinc-700 text-[0.7rem] font-bold flex items-center justify-center border border-zinc-200">
-                        {post.authorInitials}
+                      <div className="flex items-center justify-between border-t border-zinc-100 pt-6">
+                        <div className="flex items-center gap-3">
+                          <div className="w-10 h-10 rounded-full bg-brand-red text-white text-xs font-bold flex items-center justify-center">
+                            RH
+                          </div>
+                          <div>
+                            <h5 className="font-bold text-zinc-900 text-xs">Red Hot Team</h5>
+                            <span className="text-[0.65rem] text-zinc-400 font-medium">Editorial</span>
+                          </div>
+                        </div>
+                        <Link
+                          href={`/blog/${featured.slug}`}
+                          className="inline-flex items-center gap-1.5 text-xs font-bold text-brand-red hover:text-red-700 transition-colors"
+                        >
+                          Read Story <span>→</span>
+                        </Link>
                       </div>
-                      <span className="text-[0.75rem] font-bold text-zinc-800">{post.author}</span>
                     </div>
-                    <Link
-                      href={`/blog/${post.id}`}
-                      className="text-xs font-bold text-brand-red hover:text-red-700 transition-colors"
-                    >
-                      Read →
-                    </Link>
                   </div>
                 </div>
               </Reveal>
-            ))}
-          </div>
-        ) : (
-          !isFeaturedVisible && (
-            <div className="text-center py-16">
-              <p className="text-zinc-400 font-medium text-sm">No other articles matching this category found.</p>
-            </div>
-          )
+            )}
+
+            {/* Dynamic Grid for remaining articles */}
+            {gridArticles.length > 0 ? (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {gridArticles.map(post => (
+                  <Reveal key={post.id}>
+                    <div className="bg-white border border-zinc-100 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl hover:border-red-500/10 transition-all duration-500 h-full flex flex-col justify-between">
+                      <div>
+                        <div className="relative h-48 w-full bg-zinc-100 overflow-hidden">
+                          <span className="absolute top-4 left-4 bg-zinc-950/70 backdrop-blur-md text-white text-[0.65rem] font-bold uppercase tracking-widest px-3 py-1 rounded-full z-10">
+                            {post.category?.name || "Blog"}
+                          </span>
+                          <img
+                            src={post.image_url}
+                            alt={post.title}
+                            className="w-full h-full object-cover hover:scale-103 transition-transform duration-500"
+                          />
+                        </div>
+                        <div className="p-6">
+                          <div className="flex items-center gap-3 text-[0.7rem] font-bold text-zinc-400 mb-3 uppercase tracking-wider">
+                            <span>📅 {formatDate(post.published_at || post.created_at)}</span>
+                            <span>⏱️ {calculateReadTime(post.description)}</span>
+                          </div>
+                          <h3 className="text-lg font-bold text-zinc-900 mb-3 hover:text-brand-red transition-colors line-clamp-2">
+                            <Link href={`/blog/${post.slug}`}>
+                              {post.title}
+                            </Link>
+                          </h3>
+                          <p className="text-zinc-500 text-xs leading-relaxed line-clamp-3">
+                            {post.short_description}
+                          </p>
+                        </div>
+                      </div>
+
+                      <div className="px-6 pb-6 border-t border-zinc-50 pt-4 flex items-center justify-between mt-auto">
+                        <div className="flex items-center gap-2.5">
+                          <div className="w-8 h-8 rounded-full bg-zinc-100 text-zinc-700 text-[0.7rem] font-bold flex items-center justify-center border border-zinc-200">
+                            RH
+                          </div>
+                          <span className="text-[0.75rem] font-bold text-zinc-800">Red Hot Team</span>
+                        </div>
+                        <Link
+                          href={`/blog/${post.slug}`}
+                          className="text-xs font-bold text-brand-red hover:text-red-700 transition-colors"
+                        >
+                          Read →
+                        </Link>
+                      </div>
+                    </div>
+                  </Reveal>
+                ))}
+              </div>
+            ) : (
+              !featured && (
+                <div className="text-center py-16">
+                  <p className="text-zinc-400 font-medium text-sm">No articles matching this category found.</p>
+                </div>
+              )
+            )}
+          </>
         )}
       </section>
 

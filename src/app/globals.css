@@ -9,6 +9,16 @@
   --font-outfit: var(--font-outfit-sans), sans-serif;
   --shadow-red-neon: 0 0 15px rgba(227, 30, 36, 0.4);
   --shadow-gold-neon: 0 0 15px rgba(243, 156, 18, 0.4);
+  --animate-float-hero: floatHero 8s ease-in-out infinite;
+
+  @keyframes floatHero {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
 }
 
 :root {

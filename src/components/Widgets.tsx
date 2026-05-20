@@ -3,10 +3,9 @@
 import { useEffect, useRef, useState } from "react";
 
 const TEXTS = [
-  "Igniting the Future of Gaming",
-  "15+ Years of Burning Passion",
-  "Powering Global Gaming Giants",
-  "The Hottest iGaming Solutions",
+  "Best online casino software providers",
+  "World-class betting solutions",
+  
 ];
 
 export function TypewriterBadge() {
@@ -41,9 +40,9 @@ export function TypewriterBadge() {
   }, [subIndex, index]);
 
   return (
-    <div className="inline-flex items-center gap-2.5 bg-red-600/8 backdrop-blur-md px-4 py-2 border border-red-500/10 rounded-full text-brand-red text-xs font-bold uppercase tracking-wider mb-6">
-      <span className="w-2.5 h-2.5 rounded-full bg-brand-red animate-pulse-dot" />
-      <span>{text}</span>
+    <div className="inline-flex items-center gap-2.5 bg-red-600/8 backdrop-blur-md px-4 py-2 border border-red-500/10 rounded-full text-brand-red text-xs font-bold uppercase tracking-wider mb-6 h-[34px]">
+      <span className="w-2.5 h-2.5 rounded-full bg-brand-red animate-pulse-dot flex-shrink-0" />
+      <span>{text || "\u200B"}</span>
     </div>
   );
 }

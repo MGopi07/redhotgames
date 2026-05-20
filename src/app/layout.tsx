@@ -20,8 +20,8 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "RED HOT GAMES – Premium iGaming Solutions",
-  description: "Red Hot Games provides professional licensed software solutions, wagering recording systems, and betting terminals for the global iGaming and betting industries.",
+  title: "Best online casino software providers | Redhotgames",
+  description: "Redhotgames is the best online casino software provider offering secure platforms, innovative gaming solutions, integrations, and high-performance casino systems for global gaming businesses.",
 };
 
 export const viewport: Viewport = {

@@ -2,34 +2,65 @@
 
 import { useState } from "react";
 import { Reveal } from "@/components/Widgets";
+import { API_BASE_URL } from "@/config";
+import GoogleMap from "@/components/GoogleMap";
 
 export default function ContactPage() {
   const [loading, setLoading] = useState(false);
   const [showToast, setShowToast] = useState(false);
+  const [errors, setErrors] = useState<any>({});
   const [form, setForm] = useState({
     name: "",
     email: "",
-    company: "",
     phone: "",
-    model: "",
-    interest: "",
+    subject: "",
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setLoading(true);
+    
+    // Quick client-side check
+    if (form.message.length < 10) {
+      setErrors({ message: ["The message field must be at least 10 characters."] });
+      return;
+    }
 
-    // Simulate submission delay
-    setTimeout(() => {
-      setLoading(false);
+    setLoading(true);
+    setErrors({});
+
+    try {
+      const response = await fetch(`${API_BASE_URL}/api/v1/contact`, {
+        method: "POST",
+        headers: {
+          "Accept": "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          phone: form.phone,
+          subject: form.subject,
+          message: form.message,
+        }),
+      });
+
+      const data = await response.json().catch(() => ({}));
+
+      if (!response.ok || data.success === false) {
+        if (data.errors) {
+          setErrors(data.errors);
+          return;
+        }
+        throw new Error(data.message || "Failed to submit contact form");
+      }
+
+      // Success
       setForm({
         name: "",
         email: "",
-        company: "",
         phone: "",
-        model: "",
-        interest: "",
+        subject: "",
         message: "",
       });
       setShowToast(true);
@@ -38,7 +69,12 @@ export default function ContactPage() {
       setTimeout(() => {
         setShowToast(false);
       }, 5000);
-    }, 1500);
+    } catch (error: any) {
+      console.error("Error submitting contact form:", error);
+      alert(error.message || "Something went wrong while submitting your inquiry. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -102,7 +138,7 @@ export default function ContactPage() {
               </div>
 
               {/* Business Hours */}
-              <div className="bg-white border border-zinc-100 rounded-2xl p-6 shadow-sm flex items-start gap-4 mb-3">
+              {/* <div className="bg-white border border-zinc-100 rounded-2xl p-6 shadow-sm flex items-start gap-4 mb-3">
                 <div className="w-12 h-12 rounded-xl bg-blue-50 text-blue-700 flex items-center justify-center text-xl shrink-0">
                   🕒
                 </div>
@@ -115,7 +151,7 @@ export default function ContactPage() {
                     Saturday – Sunday: Closed (Emergency technical lines active 24/7)
                   </p>
                 </div>
-              </div>
+              </div> */}
 
               {/* Social Channels */}
               <div className="bg-white border border-zinc-100 rounded-2xl p-6 shadow-sm mt-2">
@@ -157,11 +193,23 @@ export default function ContactPage() {
                         type="text"
                         id="name"
                         value={form.name}
-                        onChange={(e) => setForm({ ...form, name: e.target.value })}
+                        onChange={(e) => {
+                          setForm({ ...form, name: e.target.value });
+                          if (errors.name) {
+                            const newErrors = { ...errors };
+                            delete newErrors.name;
+                            setErrors(newErrors);
+                          }
+                        }}
                         placeholder="e.g. Malope"
                         required
-                        className="border border-zinc-100 bg-zinc-50/50 p-3.5 rounded-xl text-sm focus:bg-white focus:border-brand-red focus:outline-none transition-all"
+                        className={`border bg-zinc-50/50 p-3.5 rounded-xl text-sm focus:bg-white focus:outline-none transition-all ${
+                          errors.name ? "border-red-500 focus:border-red-500" : "border-zinc-100 focus:border-brand-red"
+                        }`}
                       />
+                      {errors.name && (
+                        <p className="text-red-500 text-xs font-semibold mt-1">{errors.name[0]}</p>
+                      )}
                     </div>
                     <div className="flex flex-col gap-1.5">
                       <label htmlFor="email" className="text-xs font-bold text-zinc-600 uppercase tracking-wide">
@@ -171,29 +219,27 @@ export default function ContactPage() {
                         type="email"
                         id="email"
                         value={form.email}
-                        onChange={(e) => setForm({ ...form, email: e.target.value })}
+                        onChange={(e) => {
+                          setForm({ ...form, email: e.target.value });
+                          if (errors.email) {
+                            const newErrors = { ...errors };
+                            delete newErrors.email;
+                            setErrors(newErrors);
+                          }
+                        }}
                         placeholder="e.g. contact@yourbrand.com"
                         required
-                        className="border border-zinc-100 bg-zinc-50/50 p-3.5 rounded-xl text-sm focus:bg-white focus:border-brand-red focus:outline-none transition-all"
+                        className={`border bg-zinc-50/50 p-3.5 rounded-xl text-sm focus:bg-white focus:outline-none transition-all ${
+                          errors.email ? "border-red-500 focus:border-red-500" : "border-zinc-100 focus:border-brand-red"
+                        }`}
                       />
+                      {errors.email && (
+                        <p className="text-red-500 text-xs font-semibold mt-1">{errors.email[0]}</p>
+                      )}
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                    <div className="flex flex-col gap-1.5">
-                      <label htmlFor="company" className="text-xs font-bold text-zinc-600 uppercase tracking-wide">
-                        Company Name
-                      </label>
-                      <input
-                        type="text"
-                        id="company"
-                        value={form.company}
-                        onChange={(e) => setForm({ ...form, company: e.target.value })}
-                        placeholder="e.g. Phoenix Play"
-                        required
-                        className="border border-zinc-100 bg-zinc-50/50 p-3.5 rounded-xl text-sm focus:bg-white focus:border-brand-red focus:outline-none transition-all"
-                      />
-                    </div>
                     <div className="flex flex-col gap-1.5">
                       <label htmlFor="phone" className="text-xs font-bold text-zinc-600 uppercase tracking-wide">
                         Phone Number
@@ -202,53 +248,49 @@ export default function ContactPage() {
                         type="tel"
                         id="phone"
                         value={form.phone}
-                        onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                        onChange={(e) => {
+                          setForm({ ...form, phone: e.target.value });
+                          if (errors.phone) {
+                            const newErrors = { ...errors };
+                            delete newErrors.phone;
+                            setErrors(newErrors);
+                          }
+                        }}
                         placeholder="e.g. +27 11 000 0000"
                         required
-                        className="border border-zinc-100 bg-zinc-50/50 p-3.5 rounded-xl text-sm focus:bg-white focus:border-brand-red focus:outline-none transition-all"
+                        className={`border bg-zinc-50/50 p-3.5 rounded-xl text-sm focus:bg-white focus:outline-none transition-all ${
+                          errors.phone ? "border-red-500 focus:border-red-500" : "border-zinc-100 focus:border-brand-red"
+                        }`}
                       />
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                    <div className="flex flex-col gap-1.5">
-                      <label htmlFor="model" className="text-xs font-bold text-zinc-600 uppercase tracking-wide">
-                        Business Model
-                      </label>
-                      <select
-                        id="model"
-                        value={form.model}
-                        onChange={(e) => setForm({ ...form, model: e.target.value })}
-                        required
-                        className="border border-zinc-100 bg-zinc-50/50 p-3.5 rounded-xl text-sm focus:bg-white focus:border-brand-red focus:outline-none transition-all"
-                      >
-                        <option value="" disabled>Select Model</option>
-                        <option value="Licensed Operator">Licensed Operator</option>
-                        <option value="Retail Betting Lounge">Retail Betting Lounge</option>
-                        <option value="Casino Floor Owner">Casino Floor Owner</option>
-                        <option value="Affiliate Network">Affiliate / Agent Network</option>
-                        <option value="Startup">Startup / Tech Entrepreneur</option>
-                      </select>
+                      {errors.phone && (
+                        <p className="text-red-500 text-xs font-semibold mt-1">{errors.phone[0]}</p>
+                      )}
                     </div>
                     <div className="flex flex-col gap-1.5">
-                      <label htmlFor="interest" className="text-xs font-bold text-zinc-600 uppercase tracking-wide">
-                        Primary Interest
+                      <label htmlFor="subject" className="text-xs font-bold text-zinc-600 uppercase tracking-wide">
+                        Subject
                       </label>
-                      <select
-                        id="interest"
-                        value={form.interest}
-                        onChange={(e) => setForm({ ...form, interest: e.target.value })}
+                      <input
+                        type="text"
+                        id="subject"
+                        value={form.subject}
+                        onChange={(e) => {
+                          setForm({ ...form, subject: e.target.value });
+                          if (errors.subject) {
+                            const newErrors = { ...errors };
+                            delete newErrors.subject;
+                            setErrors(newErrors);
+                          }
+                        }}
+                        placeholder="e.g. Inquiry about services"
                         required
-                        className="border border-zinc-100 bg-zinc-50/50 p-3.5 rounded-xl text-sm focus:bg-white focus:border-brand-red focus:outline-none transition-all"
-                      >
-                        <option value="" disabled>Select Product</option>
-                        <option value="Wagering Recording">Wagering Recording (Playbex LOC)</option>
-                        <option value="Full White Label">Full White Label Platform</option>
-                        <option value="Sportsbook Module">B2B Sportsbook Module</option>
-                        <option value="SSBT Cabinet Hardware">SSBT Terminal Hardware</option>
-                        <option value="FOBT Cabinet Hardware">FOBT Terminal Hardware</option>
-                        <option value="Replacements Spares">Replacements & Spares Contracts</option>
-                      </select>
+                        className={`border bg-zinc-50/50 p-3.5 rounded-xl text-sm focus:bg-white focus:outline-none transition-all ${
+                          errors.subject ? "border-red-500 focus:border-red-500" : "border-zinc-100 focus:border-brand-red"
+                        }`}
+                      />
+                      {errors.subject && (
+                        <p className="text-red-500 text-xs font-semibold mt-1">{errors.subject[0]}</p>
+                      )}
                     </div>
                   </div>
 
@@ -259,12 +301,30 @@ export default function ContactPage() {
                     <textarea
                       id="message"
                       value={form.message}
-                      onChange={(e) => setForm({ ...form, message: e.target.value })}
+                      onChange={(e) => {
+                        const val = e.target.value;
+                        setForm({ ...form, message: val });
+                        if (val && val.length < 10) {
+                          setErrors((prev: any) => ({
+                            ...prev,
+                            message: ["The message field must be at least 10 characters."],
+                          }));
+                        } else {
+                          const newErrors = { ...errors };
+                          delete newErrors.message;
+                          setErrors(newErrors);
+                        }
+                      }}
                       placeholder="Briefly summarize your regulatory jurisdiction, estimated rollout size..."
                       required
                       rows={4}
-                      className="border border-zinc-100 bg-zinc-50/50 p-3.5 rounded-xl text-sm focus:bg-white focus:border-brand-red focus:outline-none transition-all resize-none"
+                      className={`border bg-zinc-50/50 p-3.5 rounded-xl text-sm focus:bg-white focus:outline-none transition-all resize-none ${
+                        errors.message ? "border-red-500 focus:border-red-500" : "border-zinc-100 focus:border-brand-red"
+                      }`}
                     />
+                    {errors.message && (
+                      <p className="text-red-500 text-xs font-semibold mt-1">{errors.message[0]}</p>
+                    )}
                   </div>
 
                   <button
@@ -284,7 +344,7 @@ export default function ContactPage() {
       </section>
 
       {/* 3. COMPLIANCE BARS */}
-      <section className="py-16 max-w-7xl mx-auto px-6 md:px-8 mt-12">
+      {/* <section className="py-16 max-w-7xl mx-auto px-6 md:px-8 mt-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <Reveal className="h-full">
             <div className="bg-white border border-zinc-100 border-l-4 border-brand-red rounded-2xl p-6 flex items-center gap-5 shadow-lg shadow-zinc-100/40 hover:shadow-xl hover:translate-y-[-4px] transition-all duration-300 h-full group">
@@ -321,6 +381,13 @@ export default function ContactPage() {
               </div>
             </div>
           </Reveal>
+        </div>
+      </section> */}
+      <section className="px-6 py-16">
+        <div className="mx-auto max-w-7xl">
+          <h2 className="mb-6 text-3xl font-bold">Our Location</h2>
+
+          <GoogleMap />
         </div>
       </section>
 

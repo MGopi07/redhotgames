@@ -47,7 +47,7 @@ export default function Navbar() {
     if (href.startsWith("#") || href.startsWith("/#")) {
       e.preventDefault();
       const targetId = href.replace(/^\/?#/, "");
-      
+
       if (pathname === "/") {
         const el = document.getElementById(targetId);
         if (el) {
@@ -85,11 +85,10 @@ export default function Navbar() {
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 flex items-center ${
-          scrolled
-            ? "h-[72px] bg-white border-b border-zinc-100 shadow-md shadow-zinc-100/10"
-            : "h-[80px] bg-white/90 backdrop-blur-md border-b border-zinc-100"
-        }`}
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 flex items-center ${scrolled
+          ? "h-[72px] bg-white border-b border-zinc-100 shadow-md shadow-zinc-100/10"
+          : "h-[80px] bg-white/90 backdrop-blur-md border-b border-zinc-100"
+          }`}
       >
         <div className="w-full max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between">
           {/* Logo */}
@@ -104,13 +103,14 @@ export default function Navbar() {
           {/* Desktop Links */}
           <div className="hidden xl:flex items-center gap-6">
             <ul className="flex items-center gap-1">
+
               <li>
                 <a
                   href="/#modules"
                   onClick={(e) => handleLinkClick(e, "/#modules")}
                   className={getLinkClass("/#modules")}
                 >
-                  Platform
+                  Platform modules
                 </a>
               </li>
               <li>
@@ -119,7 +119,7 @@ export default function Navbar() {
                   onClick={(e) => handleLinkClick(e, "/#channels")}
                   className={getLinkClass("/#channels")}
                 >
-                  Omnichannel
+                  Channels
                 </a>
               </li>
               <li>
@@ -131,18 +131,15 @@ export default function Navbar() {
                   CRM
                 </a>
               </li>
-              <li>
-                <a
-                  href="/#partnership"
-                  onClick={(e) => handleLinkClick(e, "/#partnership")}
-                  className={getLinkClass("/#partnership")}
-                >
-                  Partnerships
-                </a>
-              </li>
+
               <li>
                 <Link href="/about" className={getLinkClass("/about")}>
                   About Us
+                </Link>
+              </li>
+              <li>
+                <Link href="/terminal" className={getLinkClass("/terminal")}>
+                  Terminal
                 </Link>
               </li>
               <li>
@@ -150,6 +147,7 @@ export default function Navbar() {
                   Blog
                 </Link>
               </li>
+
             </ul>
           </div>
 
@@ -169,19 +167,16 @@ export default function Navbar() {
               aria-label="Toggle navigation menu"
             >
               <span
-                className={`w-6 h-[2px] bg-zinc-900 rounded-full transition-transform duration-300 ${
-                  mobileMenuOpen ? "translate-y-2 rotate-45" : ""
-                }`}
+                className={`w-6 h-[2px] bg-zinc-900 rounded-full transition-transform duration-300 ${mobileMenuOpen ? "translate-y-2 rotate-45" : ""
+                  }`}
               />
               <span
-                className={`w-6 h-[2px] bg-zinc-900 rounded-full transition-opacity duration-300 ${
-                  mobileMenuOpen ? "opacity-0" : ""
-                }`}
+                className={`w-6 h-[2px] bg-zinc-900 rounded-full transition-opacity duration-300 ${mobileMenuOpen ? "opacity-0" : ""
+                  }`}
               />
               <span
-                className={`w-6 h-[2px] bg-zinc-900 rounded-full transition-transform duration-300 ${
-                  mobileMenuOpen ? "-translate-y-2 -rotate-45" : ""
-                }`}
+                className={`w-6 h-[2px] bg-zinc-900 rounded-full transition-transform duration-300 ${mobileMenuOpen ? "-translate-y-2 -rotate-45" : ""
+                  }`}
               />
             </button>
           </div>
@@ -190,16 +185,14 @@ export default function Navbar() {
 
       {/* Mobile Offcanvas Drawer */}
       <div
-        className={`fixed inset-0 z-40 bg-zinc-950/40 backdrop-blur-sm transition-opacity duration-300 xl:hidden ${
-          mobileMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
-        }`}
+        className={`fixed inset-0 z-40 bg-zinc-950/40 backdrop-blur-sm transition-opacity duration-300 xl:hidden ${mobileMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+          }`}
         onClick={() => setMobileMenuOpen(false)}
       />
 
       <div
-        className={`fixed top-0 right-0 h-full w-[320px] bg-white shadow-2xl z-40 p-6 flex flex-col justify-between transition-transform duration-300 xl:hidden ${
-          mobileMenuOpen ? "translate-x-0" : "translate-x-full"
-        }`}
+        className={`fixed top-0 right-0 h-full w-[320px] bg-white shadow-2xl z-40 p-6 flex flex-col justify-between transition-transform duration-300 xl:hidden ${mobileMenuOpen ? "translate-x-0" : "translate-x-full"
+          }`}
       >
         <div className="mt-20">
           <h5 className="text-[0.8rem] font-extrabold uppercase tracking-widest text-zinc-400 mb-6 border-b border-zinc-100 pb-3">
@@ -246,9 +239,8 @@ export default function Navbar() {
               <Link
                 href="/about"
                 onClick={() => setMobileMenuOpen(false)}
-                className={`text-lg font-bold py-3 block border-b border-zinc-50 transition-colors ${
-                  pathname === "/about" ? "text-brand-red" : "text-zinc-900 hover:text-brand-red"
-                }`}
+                className={`text-lg font-bold py-3 block border-b border-zinc-50 transition-colors ${pathname === "/about" ? "text-brand-red" : "text-zinc-900 hover:text-brand-red"
+                  }`}
               >
                 About Us
               </Link>
@@ -257,11 +249,20 @@ export default function Navbar() {
               <Link
                 href="/blog"
                 onClick={() => setMobileMenuOpen(false)}
-                className={`text-lg font-bold py-3 block border-b border-zinc-50 transition-colors ${
-                  pathname.startsWith("/blog") ? "text-brand-red" : "text-zinc-900 hover:text-brand-red"
-                }`}
+                className={`text-lg font-bold py-3 block border-b border-zinc-50 transition-colors ${pathname.startsWith("/blog") ? "text-brand-red" : "text-zinc-900 hover:text-brand-red"
+                  }`}
               >
                 Blog
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/terminal"
+                onClick={() => setMobileMenuOpen(false)}
+                className={`text-lg font-bold py-3 block border-b border-zinc-50 transition-colors ${pathname === "/terminal" ? "text-brand-red" : "text-zinc-900 hover:text-brand-red"
+                  }`}
+              >
+                Terminal
               </Link>
             </li>
           </ul>

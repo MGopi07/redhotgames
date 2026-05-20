@@ -1,9 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { TypewriterBadge, Counter, Reveal } from "@/components/Widgets";
 import { ARTICLES } from "@/data/blog";
+import { API_BASE_URL } from "@/config";
 
 const MODULES_DATA = [
   {
@@ -11,7 +12,7 @@ const MODULES_DATA = [
     glow: "orange",
     icon: "🎰",
     title: "Casino Module",
-    desc: "Over 10,000 games from 250+ leading providers, including Evolution, Microgaming, NetEnt, Pragmatic Play, and other industry leaders.",
+    desc: "Redhotgames is recognized among the Best online casino software providers, offering 10,000+ casino games with high-performance gaming solutions. Experience premium RNG and live dealer games from leading global providers with scalable B2B casino technology.",
     footer: "RNG & Live Dealer Games"
   },
   {
@@ -19,23 +20,15 @@ const MODULES_DATA = [
     glow: "red",
     icon: "⚽",
     title: "Sportsbook Module",
-    desc: "B2B-level solution with modern technology, 210,000+ events per month, Risk management, trading, client segmentation, and reporting—all in one solution.",
+    desc: "Redhotgames provides reliable esports betting solutions trusted by brands searching Best online casino software providers. Access 2,000+ esports events monthly with official data integration, real-time feeds, and scalable infrastructure.",
     tags: ["Match Tracker", "Stats", "Cashout", "Freebets", "Livestream", "Oddsboost"]
-  },
-  {
-    id: "esports",
-    glow: "blue",
-    icon: "🎮",
-    title: "E-sports Module",
-    desc: "Reliable, scalable B2B-solution with maximum uptime. Over 2,000+ esports events per month, with official data integration from partner sources.",
-    footer: "Official Data Integration"
   },
   {
     id: "crm",
     glow: "purple",
     icon: "📈",
     title: "Intelligent CRM",
-    desc: "Features of CRM include Multi-Channel Campaigns, Flexible player segmentation, Gamification, Free-to-play mini-games, campaign Automation, deep Analysis, Personalisation and Customisation.",
+    desc: "Boost player engagement with intelligent CRM solutions from redhotgames, one of the Best online casino software providers in the industry. Features include campaign automation, player segmentation, gamification, personalization, and advanced analytics tools.",
     footer: "Advanced Retention Engine"
   },
   {
@@ -43,7 +36,7 @@ const MODULES_DATA = [
     glow: "teal",
     icon: "🤝",
     title: "Partnership Programs",
-    desc: "Built-in growth engines featuring multi-tiered programs. Empowers partners to market your platform while ensuring deep tracking.",
+    desc: "Redhotgames offers advanced affiliate and referral systems designed by one of the Best online casino software providers for rapid B2B business growth. Track performance, manage commissions, and expand your gaming network with multi-tier partnership programs.",
     footer: "Referral & Affiliate Software"
   },
   {
@@ -51,7 +44,7 @@ const MODULES_DATA = [
     glow: "mint",
     icon: "💸",
     title: "Cashier Solution",
-    desc: "Our universal 'CASHIER' solution is designed to provide fast and secure payment processing across various platforms, networks, and traditional retail environments.",
+    desc: "The secure cashier system from redhotgames helps operators manage fast and secure transactions across multiple payment channels. As one of the Best online casino software providers, redhotgames supports crypto, fiat payments, and thermal printer integration.",
     printer: "📠 Thermal Printer Support"
   }
 ];
@@ -132,18 +125,75 @@ const SECURITY_SLIDES = [
   }
 ];
 
+// Helper function to calculate read time from HTML content
+const calculateReadTime = (htmlContent: string) => {
+  if (!htmlContent) return "3 min read";
+  const text = htmlContent.replace(/<[^>]+>/g, "");
+  const wordCount = text.split(/\s+/).length;
+  const readTime = Math.ceil(wordCount / 200); // Average 200 words per minute
+  return `${readTime} min read`;
+};
+
+// Helper function to format date
+const formatDate = (dateString: string) => {
+  if (!dateString) return "";
+  const date = new Date(dateString);
+  return date.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+};
+
 export default function HomePage() {
   const [activeChannelTab, setActiveChannelTab] = useState("all");
   const [securityIndex, setSecurityIndex] = useState(0);
+  const [recentArticles, setRecentArticles] = useState<any[]>([]);
+
+  useEffect(() => {
+    // Initial mock data load
+    const initialMock = Object.entries(ARTICLES).slice(0, 3).map(([id, post]) => ({
+      id,
+      slug: id,
+      title: post.title,
+      category: post.category,
+      image: post.image,
+      date: post.date,
+      readTime: post.readTime,
+      lead: post.lead,
+      author: post.author,
+      authorInitials: post.authorInitials
+    }));
+    setRecentArticles(initialMock);
+
+    const fetchRecentBlogs = async () => {
+      try {
+        const res = await fetch(`${API_BASE_URL}/api/v1/blogs`);
+        if (res.ok) {
+          const body = await res.json();
+          if (body.success && body.data && Array.isArray(body.data.blogs)) {
+            // Take the first 3 blogs (latest)
+            const apiBlogs = body.data.blogs.slice(0, 3).map((blog: any) => ({
+              id: blog.slug,
+              slug: blog.slug,
+              title: blog.title,
+              category: blog.category?.name || "Blog",
+              image: blog.image_url,
+              date: formatDate(blog.published_at || blog.created_at),
+              readTime: calculateReadTime(blog.description),
+              lead: blog.short_description,
+              author: "Red Hot Team",
+              authorInitials: "RH"
+            }));
+            setRecentArticles(apiBlogs);
+          }
+        }
+      } catch (e) {
+        // Silent catch
+      }
+    };
+    fetchRecentBlogs();
+  }, []);
 
   const filteredChannels = activeChannelTab === "all"
     ? CHANNELS_DATA
     : CHANNELS_DATA.filter(item => item.id === activeChannelTab);
-
-  const recentArticles = Object.entries(ARTICLES).slice(0, 3).map(([id, post]) => ({
-    id,
-    ...post
-  }));
 
   const handleNextSecurity = () => {
     setSecurityIndex((prev) => (prev + 1) % SECURITY_SLIDES.length);
@@ -168,7 +218,7 @@ export default function HomePage() {
                 iGaming <em className="text-brand-red not-italic block">Technology</em>
               </h1>
               <p className="text-zinc-500 text-lg md:text-xl max-w-xl leading-relaxed mb-8">
-                Red Hot Games provides professional software solutions for the global betting and gaming industry.
+                Choose the best online casino software providers for your gaming business. Get reliable casino platforms, engaging games, API integration, and world-class betting solutions.
               </p>
               <div className="flex flex-wrap items-center gap-4">
                 <Link
@@ -186,7 +236,7 @@ export default function HomePage() {
               </div>
             </div>
             <div className="lg:col-span-5 flex justify-center">
-              <div className="relative max-w-md md:max-w-xl animate-[floatHero_8s_ease-in-out_infinite] hover:scale-[1.02] transition-transform duration-500">
+              <div className="relative max-w-md md:max-w-xl animate-float-hero duration-500">
                 <img
                   src="/assets/img/solutions/sportsbook.png"
                   alt="iGaming Technology"
@@ -217,21 +267,21 @@ export default function HomePage() {
                   </span>
                 </div>
                 <h2 className="font-bebas text-5xl md:text-6xl tracking-wide text-zinc-950 mb-6">
-                  Playbex <em className="text-brand-red not-italic">Wagering Recording System</em>
+                  <em className="text-brand-red not-italic">Redhotgames</em>
                 </h2>
                 <h4 className="text-lg md:text-xl font-bold text-zinc-800 mb-6">
-                  Official Letter of Compliance (LOC) Issued by NRCS
+                  Develops innovative iGaming software solutions
                 </h4>
                 <p className="text-zinc-600 text-md md:text-lg leading-relaxed mb-8">
-                  Red Hot Games is proud to announce that NRCS has issued the LOC for its Playbex Wagering Recording System.
+                  Online casinos and other digital gaming businesses. Our advanced solutions can operate independently or fully integrated into a single powerful ecosystem.Best online casino software providers.
                 </p>
                 <div className="quote-card mb-6">
                   <p className="text-zinc-800 font-medium italic text-[1.05rem] leading-relaxed mb-4">
-                    "Our platform's flexibility and the ease with which it can be customised will allow our clients to launch the iGaming business in weeks, not months with our White Label Solution."
+                    "Our platform is built for flexibility and seamless customization, enabling clients to launch their iGaming business in weeks, not months, with our advanced White Label Solution.Best online casino software providers."
                   </p>
                   <div className="text-[0.9rem]">
-                    <strong className="text-zinc-900 block font-bold">Malope</strong>
-                    <span className="text-zinc-500">Managing Director, Red Hot Games</span>
+                    <strong className="text-zinc-900 block font-bold">Managing Director</strong>
+                    <span className="text-zinc-500">Red Hot Games</span>
                   </div>
                 </div>
               </Reveal>
@@ -287,14 +337,14 @@ export default function HomePage() {
               Platform <em className="text-brand-red not-italic">Modules</em>
             </h2>
             <p className="text-zinc-400 text-md leading-relaxed">
-              A comprehensive, B2B-ready gaming software package designed to empower your betting brand.
+              Redhotgames is one of Best online casino software providers, offering advanced casino, sportsbook, esports, CRM, affiliate, cashier solutions for modern iGaming businesses worldwide.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="flex flex-wrap justify-center gap-8">
             {MODULES_DATA.map((module, i) => (
-              <Reveal key={module.id}>
-                <div className="playbex-module-card group">
+              <Reveal key={module.id} className="w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)] flex">
+                <div className="playbex-module-card group flex flex-col w-full">
                   <div className={`module-glow ${module.glow}`} />
                   <div className="text-4xl mb-6">{module.icon}</div>
                   <h3 className="text-xl font-bold text-white mb-4 group-hover:text-brand-red transition-colors duration-300">
@@ -345,7 +395,7 @@ export default function HomePage() {
               >
                 {tab.title}
               </button>
-            ))} 
+            ))}
           </div>
         </div>
 
@@ -507,92 +557,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 6. PARTNERSHIPS */}
-      <section className="py-24" id="partnership">
-        <div className="max-w-7xl mx-auto px-6 md:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <span className="text-brand-red text-xs font-extrabold uppercase tracking-widest block mb-4">
-              Ecosystem Growth
-            </span>
-            <h2 className="font-bebas text-5xl md:text-6xl text-zinc-950 mb-6">
-              Partnership <em className="text-brand-red not-italic">Programs</em>
-            </h2>
-            <p className="text-zinc-500 text-md leading-relaxed">
-              Multiply your acquisitions organically with built-in ambassador and affiliate tools.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 justify-center">
-            <Reveal>
-              <div className="group relative overflow-hidden bg-white rounded-3xl p-10 border border-zinc-100 shadow-xl shadow-zinc-200/30 hover:shadow-2xl hover:shadow-red-500/5 hover:border-brand-red/15 transition-all duration-500 hover:-translate-y-2 flex flex-col justify-between h-full">
-                {/* Accent Soft Orb Glow */}
-                <div className="absolute -top-12 -right-12 w-48 h-48 bg-rose-500/10 rounded-full blur-3xl pointer-events-none group-hover:bg-rose-500/15 transition-all duration-500" />
-
-                <div>
-                  <div className="w-16 h-16 rounded-2xl bg-rose-50 flex items-center justify-center text-3xl mb-8 border border-rose-100 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500 shadow-sm shadow-rose-200/20">
-                    📣
-                  </div>
-                  <h3 className="text-2xl font-black text-zinc-950 mb-3 group-hover:text-brand-red transition-colors duration-300 font-outfit">
-                    Referral Program
-                  </h3>
-                  <p className="text-zinc-600 text-sm leading-relaxed mb-8">
-                    Empower your customers to become brand ambassadors. Our referral suite includes robust reward structures and simple sharing utilities.
-                  </p>
-                </div>
-
-                <ul className="flex flex-col gap-4 border-t border-zinc-100 pt-8 mt-auto">
-                  <li className="flex items-start gap-3.5 text-zinc-600 text-sm leading-relaxed">
-                    <span className="flex-shrink-0 w-5 h-5 rounded-full bg-rose-50 text-brand-red flex items-center justify-center text-xs font-black shadow-sm border border-rose-100">✓</span>
-                    <span>Flexible referral reward tier settings</span>
-                  </li>
-                  <li className="flex items-start gap-3.5 text-zinc-600 text-sm leading-relaxed">
-                    <span className="flex-shrink-0 w-5 h-5 rounded-full bg-rose-50 text-brand-red flex items-center justify-center text-xs font-black shadow-sm border border-rose-100">✓</span>
-                    <span>Symmetrical referral link structures</span>
-                  </li>
-                  <li className="flex items-start gap-3.5 text-zinc-600 text-sm leading-relaxed">
-                    <span className="flex-shrink-0 w-5 h-5 rounded-full bg-rose-50 text-brand-red flex items-center justify-center text-xs font-black shadow-sm border border-rose-100">✓</span>
-                    <span>User-friendly interface utilising unique Promo Codes and QR Codes</span>
-                  </li>
-                </ul>
-              </div>
-            </Reveal>
-
-            <Reveal>
-              <div className="group relative overflow-hidden bg-white rounded-3xl p-10 border border-zinc-100 shadow-xl shadow-zinc-200/30 hover:shadow-2xl hover:shadow-amber-500/5 hover:border-brand-red/15 transition-all duration-500 hover:-translate-y-2 flex flex-col justify-between h-full">
-                {/* Accent Soft Orb Glow */}
-                <div className="absolute -top-12 -right-12 w-48 h-48 bg-amber-500/10 rounded-full blur-3xl pointer-events-none group-hover:bg-amber-500/15 transition-all duration-500" />
-
-                <div>
-                  <div className="w-16 h-16 rounded-2xl bg-amber-50 flex items-center justify-center text-3xl mb-8 border border-amber-100 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500 shadow-sm shadow-amber-200/20">
-                    🕸️
-                  </div>
-                  <h3 className="text-2xl font-black text-zinc-950 mb-3 group-hover:text-brand-red transition-colors duration-300 font-outfit">
-                    Affiliate Program
-                  </h3>
-                  <p className="text-zinc-600 text-sm leading-relaxed mb-8">
-                    Maintain high-volume traffic pipelines from professional networks. Provide webmasters and social media advertisers with advanced trackers and metrics.
-                  </p>
-                </div>
-
-                <ul className="flex flex-col gap-4 border-t border-zinc-100 pt-8 mt-auto">
-                  <li className="flex items-start gap-3.5 text-zinc-600 text-sm leading-relaxed">
-                    <span className="flex-shrink-0 w-5 h-5 rounded-full bg-amber-50 text-amber-600 flex items-center justify-center text-xs font-black shadow-sm border border-amber-100">✓</span>
-                    <span>Transparent and effective ecosystem for webmasters, bloggers, and SMM specialists</span>
-                  </li>
-                  <li className="flex items-start gap-3.5 text-zinc-600 text-sm leading-relaxed">
-                    <span className="flex-shrink-0 w-5 h-5 rounded-full bg-amber-50 text-amber-600 flex items-center justify-center text-xs font-black shadow-sm border border-amber-100">✓</span>
-                    <span>Automated postbacks, precise pixel trackers, and sub-id monitoring</span>
-                  </li>
-                  <li className="flex items-start gap-3.5 text-zinc-600 text-sm leading-relaxed">
-                    <span className="flex-shrink-0 w-5 h-5 rounded-full bg-amber-50 text-amber-600 flex items-center justify-center text-xs font-black shadow-sm border border-amber-100">✓</span>
-                    <span>Comprehensive dashboard with instant payments & revenue share logs</span>
-                  </li>
-                </ul>
-              </div>
-            </Reveal>
-          </div>
-        </div>
-      </section>
 
       {/* 7. HARDWARE SOLUTIONS */}
       <section className="py-24 bg-zinc-50 border-t border-zinc-100" id="cashier">
