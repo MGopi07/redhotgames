@@ -61,7 +61,7 @@ export default function BlogListPage() {
               ]);
             }
           } catch(e) {}
-        } else {
+        } /* else {
           // Fallback to mock categories
           const mockCategoriesMap = new Map();
           Object.values(ARTICLES).forEach(article => {
@@ -78,7 +78,7 @@ export default function BlogListPage() {
             { id: "all", label: "All Stories", slug: "all" },
             ...Array.from(mockCategoriesMap.values())
           ]);
-        }
+        } */
 
         if (blogRes && blogRes.ok) {
           try {
@@ -87,7 +87,7 @@ export default function BlogListPage() {
               setArticles(blogData.data.blogs);
             }
           } catch(e) {}
-        } else {
+        } /* else {
           // Fallback to mock articles
           const mockArticles = Object.entries(ARTICLES).map(([slug, article]) => ({
               id: slug,
@@ -103,7 +103,7 @@ export default function BlogListPage() {
               }
           }));
           setArticles(mockArticles);
-        }
+        } */
       } catch (err) {
         console.warn("Error in fetchBlogData", err);
       } finally {
@@ -144,8 +144,8 @@ export default function BlogListPage() {
       </section>
 
       {/* 2. CATEGORIES FILTER BAR */}
-      <section className="py-4 bg-white border-b border-zinc-100 sticky top-[70px] z-30 shadow-sm shadow-zinc-100/5 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 md:px-8">
+      <section className="py-4 border-zinc-100 sticky top-[70px] z-30 shadow-sm shadow-zinc-100/5 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 md:px-8 pt-3">
           <div className="flex overflow-x-auto gap-2 pb-2 snap-x [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             {categories.map(cat => (
               <button

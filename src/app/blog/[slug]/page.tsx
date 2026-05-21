@@ -71,7 +71,7 @@ export default function BlogDetailPage() {
         }
 
         // Mock data fallback if API totally failed
-        if (!fetchedPost && activeSlug && ARTICLES[activeSlug as string]) {
+        /* if (!fetchedPost && activeSlug && ARTICLES[activeSlug as string]) {
            const mockArticle = ARTICLES[activeSlug as string];
            fetchedPost = {
               id: activeSlug,
@@ -86,7 +86,7 @@ export default function BlogDetailPage() {
                   slug: mockArticle.category.toLowerCase().replace(/\s+/g, '-')
               }
            };
-        }
+        } */
 
         if (fetchedPost) {
           setPost(fetchedPost);
@@ -103,7 +103,7 @@ export default function BlogDetailPage() {
                 throw new Error("Fallback to mock");
              }
           } catch (e) {
-             // Fallback to mock related posts
+             /* // Fallback to mock related posts
              const mockRelated = Object.entries(ARTICLES)
                .filter(([slug, article]) => slug !== activeSlug && article.category === fetchedPost.category?.name)
                .slice(0, 3)
@@ -133,7 +133,7 @@ export default function BlogDetailPage() {
                setRelatedPosts([...mockRelated, ...pad]);
              } else {
                setRelatedPosts(mockRelated);
-             }
+             } */
           }
         } else {
           setError("Article not found.");
@@ -146,7 +146,7 @@ export default function BlogDetailPage() {
               setRecentPosts(latestData.data.filter((p: any) => p.slug !== activeSlug).slice(0, 4));
             }
           } catch(e) {}
-        } else {
+        } /* else {
           // Fallback to mock recent posts
           const mockRecent = Object.entries(ARTICLES)
             .filter(([slug]) => slug !== activeSlug)
@@ -160,7 +160,7 @@ export default function BlogDetailPage() {
               category: { name: article.category }
             }));
           setRecentPosts(mockRecent);
-        }
+        } */
 
         if (catRes && catRes.ok) {
           try {
@@ -169,7 +169,7 @@ export default function BlogDetailPage() {
               setCategories(catData.data);
             }
           } catch(e) {}
-        } else {
+        } /* else {
           // Fallback to mock categories
           const mockCategoriesMap = new Map();
           Object.values(ARTICLES).forEach(article => {
@@ -183,7 +183,7 @@ export default function BlogDetailPage() {
             }
           });
           setCategories(Array.from(mockCategoriesMap.values()));
-        }
+        } */
 
       } catch (err) {
         console.warn("Error processing article:", err);

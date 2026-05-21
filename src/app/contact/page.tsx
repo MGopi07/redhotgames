@@ -385,7 +385,7 @@ export default function ContactPage() {
       </section> */}
       <section className="px-6 py-16">
         <div className="mx-auto max-w-7xl">
-          <h2 className="mb-6 text-3xl font-bold">Our Location</h2>
+          {/* <h2 className="mb-6 text-3xl font-bold">Our Location</h2> */}
 
           <GoogleMap />
         </div>
